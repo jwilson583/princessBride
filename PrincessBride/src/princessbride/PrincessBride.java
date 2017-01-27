@@ -7,7 +7,7 @@ package princessbride;
 
 import byui.cit260.princessBride.model.Item;  //imported by Lai
 import byui.cit260.princessBride.model.Location;
-import byui.cit260.princessBride.model.Skills;
+import byui.cit260.princessBride.model.Skills; //imported by Lai
 
 /**
  *
