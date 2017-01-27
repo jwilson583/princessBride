@@ -28,7 +28,7 @@ public class PrincessBride {
         String locationInfo = locationOne.toString();
         System.out.println(locationInfo);
         
-        Item itemOne = new Item();  //added by Lai
+        Item itemOne = new Item();  //added Item and Skills entries by Lai
         
         itemOne.setName("Rock");
         itemOne.setType("heavy");
