@@ -9,6 +9,7 @@ import byui.cit260.princessBride.model.BackPack;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Item;  //imported by Lai
 import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Skills;
 
@@ -21,10 +22,11 @@ public class PrincessBride {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {      
        
-        Location locationOne= new Location(); 
+ 
         
+        Location locationOne = new Location(); 
         locationOne.setName("Florin Castle");
         locationOne.setBestTime(7.00);
         
@@ -55,6 +57,16 @@ public class PrincessBride {
         String skillsInfo = skillsOne.toString();
         System.out.println(skillsInfo);
         
+ 
+    Scene sceneOne = new Scene();  
+    
+    sceneOne.setDescription("The Great Forest");
+    sceneOne.setTravelTime(7.00);
+    sceneOne.setType("friendly");
+    
+    String sceneInfo = sceneOne.toString();
+    System.out.println(sceneInfo);
+    
         
         //Calling and testing classes included by Dan
         
@@ -86,6 +98,7 @@ public class PrincessBride {
         
         
         
+
     }
     
 }
