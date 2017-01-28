@@ -11,6 +11,7 @@ import byui.cit260.princessBride.model.Item;  //imported by Lai
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Map;
+import byui.cit260.princessBride.model.NPC;
 import byui.cit260.princessBride.model.Skills;
 
 /**
@@ -24,8 +25,6 @@ public class PrincessBride {
      */
     public static void main(String[] args) {      
        
- 
-        
         Location locationOne = new Location(); 
         locationOne.setName("Florin Castle");
         locationOne.setBestTime(7.00);
@@ -96,9 +95,21 @@ public class PrincessBride {
         String backPackinfo = myBack.toString();
         System.out.println(backPackinfo);
         
-        
-        
+         NPC npcOne = new NPC();
+         npcOne.setName("Goblin");
+         npcOne.setHealth(10.0);
+         npcOne.setDefence(5.0);
+         npcOne.setSkill("sword");
+         npcOne.setDescription("Green adn Scary");
+         
+        String npcinfo = npcOne.toString();
+        System.out.println(npcinfo);
 
+    }
+
+    @Override
+    public String toString() {
+        return "PrincessBride{" + '}';
     }
     
 }
