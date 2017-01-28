@@ -23,6 +23,8 @@ public class Character implements Serializable{
 
     public Character() {
     }
+
+    
     
     public String getName() {
         return name;
@@ -66,12 +68,12 @@ public class Character implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.defence) ^ (Double.doubleToLongBits(this.defence) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.skill);
-        hash = 83 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.health) ^ (Double.doubleToLongBits(this.health) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.defence) ^ (Double.doubleToLongBits(this.defence) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.skill);
+        hash = 97 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -109,5 +111,6 @@ public class Character implements Serializable{
     public String toString() {
         return "Character{" + "name=" + name + ", health=" + health + ", defence=" + defence + ", skill=" + skill + ", description=" + description + '}';
     }
+
 
 }
