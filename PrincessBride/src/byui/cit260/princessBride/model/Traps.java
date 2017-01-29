@@ -11,10 +11,10 @@ import java.util.Objects;
  *
  * @author Jack Wilson
  */
-public class Traps {
-
-private String name;
-private double bestTime;
+public class Traps{
+    private String name;
+    private int damage;
+    private int disarm;
 
     public Traps() {
     }
@@ -27,19 +27,28 @@ private double bestTime;
         this.name = name;
     }
 
-    public double getBestTime() {
-        return bestTime;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getDisarm() {
+        return disarm;
+    }
+
+    public void setDisarm(int disarm) {
+        this.disarm = disarm;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + this.damage;
+        hash = 17 * hash + this.disarm;
         return hash;
     }
 
@@ -55,7 +64,10 @@ private double bestTime;
             return false;
         }
         final Traps other = (Traps) obj;
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (this.damage != other.damage) {
+            return false;
+        }
+        if (this.disarm != other.disarm) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -66,8 +78,10 @@ private double bestTime;
 
     @Override
     public String toString() {
-        return "Traps{" + "name=" + name + ", bestTime=" + bestTime + '}';
+        return "Traps{" + "name=" + name + ", damage=" + damage + ", disarm=" + disarm + '}';
     }
 
-
+    
 }
+
+

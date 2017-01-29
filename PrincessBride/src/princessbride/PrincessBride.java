@@ -7,7 +7,10 @@ package princessbride;
 
 import byui.cit260.princessBride.model.Item;  //imported by Lai
 import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Skills;
+import byui.cit260.princessBride.model.Store;
+import byui.cit260.princessBride.model.Traps;
 
 /**
  *
@@ -51,6 +54,34 @@ public class PrincessBride {
         
         String skillsInfo = skillsOne.toString();
         System.out.println(skillsInfo);
+        
+        // Testing classes by Jack 
+        
+        Player playerOne = new Player();  
+        
+        playerOne.setName("Westley");
+        playerOne.setBestTime(7.00);
+                
+                
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
+        
+        Store storeOne = new Store();  
+        
+        storeOne.setName("Miracle Max's Miracle Shop");
+        storeOne.setBestTime(7.00);
+              
+        String storeInfo = storeOne.toString();
+        System.out.println(storeInfo);
+        
+        Traps trapsOne = new Traps();  
+        
+        trapsOne.setName("Lightening Quick Sand");
+        trapsOne.setDamage(50);
+        trapsOne.setDisarm(60);
+              
+        String trapsInfo = trapsOne.toString();
+        System.out.println(trapsInfo);
     }
     
 }
