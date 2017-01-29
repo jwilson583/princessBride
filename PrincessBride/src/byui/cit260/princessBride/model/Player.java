@@ -16,12 +16,14 @@ public class Player implements Serializable{
     
     //class instance variables
     private String name;
-    private double bestTime;
+    private int health;
+    private int defense;
+    private int attack;
+    private int gold;
 
     public Player() {
     }
 
-    
     public String getName() {
         return name;
     }
@@ -30,19 +32,46 @@ public class Player implements Serializable{
         this.name = name;
     }
 
-    public double getBestTime() {
-        return bestTime;
+    public int getHealth() {
+        return health;
     }
 
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 73 * hash + Objects.hashCode(this.name);
-        hash = 73 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + this.health;
+        hash = 97 * hash + this.defense;
+        hash = 97 * hash + this.attack;
+        hash = 97 * hash + this.gold;
         return hash;
     }
 
@@ -58,7 +87,16 @@ public class Player implements Serializable{
             return false;
         }
         final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (this.health != other.health) {
+            return false;
+        }
+        if (this.defense != other.defense) {
+            return false;
+        }
+        if (this.attack != other.attack) {
+            return false;
+        }
+        if (this.gold != other.gold) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -69,8 +107,9 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", bestTime=" + bestTime + '}';
-    }   
+        return "Player{" + "name=" + name + ", health=" + health + ", defense=" + defense + ", attack=" + attack + ", gold=" + gold + '}';
+    }
+    
     
     
 }

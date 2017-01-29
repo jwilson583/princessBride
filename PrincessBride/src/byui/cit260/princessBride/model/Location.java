@@ -12,36 +12,53 @@ import java.util.Objects;
  * @author Jack Wilson
  */
 public class Location implements Serializable{
-    // class instance variables
-    private String name;
-    private double bestTime;
-    
+    private int row;
+    private int column;
+    private boolean visited;
+    private int amountRemaining;
+
     public Location() {
     }
-    
-    public String getName() {
-        return name;
+
+    public int getRow() {
+        return row;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public double getBestTime() {
-        return bestTime;
+    public int getColumn() {
+        return column;
     }
 
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
+    public void setColumn(int column) {
+        this.column = column;
     }
 
-    
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public int getAmountRemaining() {
+        return amountRemaining;
+    }
+
+    public void setAmountRemaining(int amountRemaining) {
+        this.amountRemaining = amountRemaining;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        int hash = 7;
+        hash = 89 * hash + this.row;
+        hash = 89 * hash + this.column;
+        hash = 89 * hash + (this.visited ? 1 : 0);
+        hash = 89 * hash + this.amountRemaining;
         return hash;
     }
 
@@ -57,23 +74,25 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (this.row != other.row) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (this.column != other.column) {
+            return false;
+        }
+        if (this.visited != other.visited) {
+            return false;
+        }
+        if (this.amountRemaining != other.amountRemaining) {
             return false;
         }
         return true;
     }
-   
+
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", bestTime=" + bestTime + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
-    
-    
-
-    
     
     
 }

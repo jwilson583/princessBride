@@ -17,33 +17,33 @@ import java.util.Objects;/**
  */
 public class Store {
     // class instance variables
-    private String name;
-    private double bestTime;
+    private String itemDescription;
+    private int itemCost;
 
     public Store() {
     }
 
-    public String getName() {
-        return name;
+    public String getItemDescription() {
+        return itemDescription;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
     }
 
-    public double getBestTime() {
-        return bestTime;
+    public int getItemCost() {
+        return itemCost;
     }
 
-    public void setBestTime(double bestTime) {
-        this.bestTime = bestTime;
+    public void setItemCost(int itemCost) {
+        this.itemCost = itemCost;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.name);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.itemDescription);
+        hash = 89 * hash + this.itemCost;
         return hash;
     }
 
@@ -59,10 +59,10 @@ public class Store {
             return false;
         }
         final Store other = (Store) obj;
-        if (Double.doubleToLongBits(this.bestTime) != Double.doubleToLongBits(other.bestTime)) {
+        if (this.itemCost != other.itemCost) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.itemDescription, other.itemDescription)) {
             return false;
         }
         return true;
@@ -70,9 +70,9 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" + "name=" + name + ", bestTime=" + bestTime + '}';
+        return "Store{" + "itemDescription=" + itemDescription + ", itemCost=" + itemCost + '}';
     }
-    
-    
-    
+
+
+
 }

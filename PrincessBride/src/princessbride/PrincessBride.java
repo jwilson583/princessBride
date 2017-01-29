@@ -33,8 +33,10 @@ public class PrincessBride {
         
         // Testing classes by Jack 
 	Location locationOne = new Location(); 
-        locationOne.setName("Florin Castle");
-        locationOne.setBestTime(7.00);
+        locationOne.setRow(15);
+        locationOne.setColumn(34);
+        locationOne.setVisited(true);
+        locationOne.setAmountRemaining(25);
         
         String locationInfo = locationOne.toString();
         System.out.println(locationInfo);
@@ -43,7 +45,10 @@ public class PrincessBride {
         Player playerOne = new Player();  
         
         playerOne.setName("Westley");
-        playerOne.setBestTime(7.00);
+        playerOne.setHealth(100);
+        playerOne.setDefense(75);
+        playerOne.setAttack(125);
+        playerOne.setGold(65);
                 
                 
         String playerInfo = playerOne.toString();
@@ -51,15 +56,16 @@ public class PrincessBride {
         
         Store storeOne = new Store();  
         
-        storeOne.setName("Miracle Max's Miracle Shop");
-        storeOne.setBestTime(7.00);
-              
+        storeOne.setItemDescription("Rock-Pick up the Rock, Stand behind the bolder and throw it at his head!");
+        storeOne.setItemCost(10);
+      
         String storeInfo = storeOne.toString();
         System.out.println(storeInfo);
         
         Traps trapsOne = new Traps();  
 
         trapsOne.setName("Lightening Quick Sand");
+        trapsOne.setDescription("The ground beneath your foot immediatly gives way, hurry and grab a vine!");
         trapsOne.setDamage(50);
         trapsOne.setDisarm(60);
               

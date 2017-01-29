@@ -13,6 +13,7 @@ import java.util.Objects;
  */
 public class Traps{
     private String name;
+    private String description;
     private int damage;
     private int disarm;
 
@@ -25,6 +26,14 @@ public class Traps{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getDamage() {
@@ -45,10 +54,11 @@ public class Traps{
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.name);
-        hash = 17 * hash + this.damage;
-        hash = 17 * hash + this.disarm;
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + Objects.hashCode(this.description);
+        hash = 97 * hash + this.damage;
+        hash = 97 * hash + this.disarm;
         return hash;
     }
 
@@ -73,15 +83,16 @@ public class Traps{
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Traps{" + "name=" + name + ", damage=" + damage + ", disarm=" + disarm + '}';
+        return "Traps{" + "name=" + name + ", description=" + description + ", damage=" + damage + ", disarm=" + disarm + '}';
     }
-
     
 }
-
-
+   
