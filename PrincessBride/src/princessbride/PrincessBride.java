@@ -1,10 +1,12 @@
-/*USA is A OK
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package princessbride;
 
+import byui.cit260.princessBride.model.BackPack;
+import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Item;  //imported by Lai
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Player;
@@ -21,10 +23,9 @@ public class PrincessBride {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {      
        
-        Location locationOne= new Location(); 
-        
+        Location locationOne = new Location(); 
         locationOne.setName("Florin Castle");
         locationOne.setBestTime(7.00);
         
