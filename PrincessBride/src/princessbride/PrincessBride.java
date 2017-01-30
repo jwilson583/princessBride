@@ -5,13 +5,19 @@
  */
 package princessbride;
 
+//All imports required by the classes done by Lai, Jack, Ben and Dan.
+
 import byui.cit260.princessBride.model.BackPack;
 import byui.cit260.princessBride.model.Game;
-import byui.cit260.princessBride.model.Item;  //imported by Lai
+import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
-import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Map;
+import byui.cit260.princessBride.model.NPC;
+import byui.cit260.princessBride.model.Player;
+import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Skills;
+import byui.cit260.princessBride.model.Store;
+import byui.cit260.princessBride.model.Traps;
 
 /**
  *
@@ -22,18 +28,53 @@ public class PrincessBride {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {      
-       
- 
+    public static void main(String[] args) {   
         
-        Location locationOne = new Location(); 
-        locationOne.setName("Florin Castle");
-        locationOne.setBestTime(7.00);
+        
+        // Testing classes by Jack 
+	Location locationOne = new Location(); 
+        locationOne.setRow(15);
+        locationOne.setColumn(34);
+        locationOne.setVisited(true);
+        locationOne.setAmountRemaining(25);
         
         String locationInfo = locationOne.toString();
         System.out.println(locationInfo);
+
+
+        Player playerOne = new Player();  
         
-        Item itemOne = new Item();  //added Item and Skills entries by Lai
+        playerOne.setName("Westley");
+        playerOne.setHealth(100);
+        playerOne.setDefense(75);
+        playerOne.setAttack(125);
+        playerOne.setGold(65);
+                
+                
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
+        
+        Store storeOne = new Store();  
+        
+        storeOne.setItemDescription("Rock-Pick up the Rock, Stand behind the bolder and throw it at his head!");
+        storeOne.setItemCost(10);
+      
+        String storeInfo = storeOne.toString();
+        System.out.println(storeInfo);
+        
+        Traps trapsOne = new Traps();  
+
+        trapsOne.setName("Lightening Quick Sand");
+        trapsOne.setDescription("The ground beneath your foot immediatly gives way, hurry and grab a vine!");
+        trapsOne.setDamage(50);
+        trapsOne.setDisarm(60);
+              
+        String trapsInfo = trapsOne.toString();
+        System.out.println(trapsInfo);
+   
+       
+        //added Item and Skills entries by Lai
+        Item itemOne = new Item();  
         
         itemOne.setName("Rock");
         itemOne.setType("heavy");
@@ -56,17 +97,6 @@ public class PrincessBride {
         
         String skillsInfo = skillsOne.toString();
         System.out.println(skillsInfo);
-        
- 
-    Scene sceneOne = new Scene();  
-    
-    sceneOne.setDescription("The Great Forest");
-    sceneOne.setTravelTime(7.00);
-    sceneOne.setType("friendly");
-    
-    String sceneInfo = sceneOne.toString();
-    System.out.println(sceneInfo);
-    
         
         //Calling and testing classes included by Dan
         
@@ -95,10 +125,31 @@ public class PrincessBride {
         
         String backPackinfo = myBack.toString();
         System.out.println(backPackinfo);
+
+
+        
+        //Classes by Ben
+        Scene sceneOne = new Scene();
+    
+        sceneOne.setDescription("The Great Forest");
+        sceneOne.setTravelTime(7.00);
+        sceneOne.setType("friendly");
+
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
         
         
-        
+        NPC npcOne = new NPC();
+        npcOne.setName("Goblin");
+        npcOne.setHealth(10.0);
+        npcOne.setDefence(5.0);
+        npcOne.setSkill("sword");
+        npcOne.setDescription("Green and Scary");
+
+        String npcinfo = npcOne.toString();
+        System.out.println(npcinfo);
 
     }
+
     
 }
