@@ -6,6 +6,8 @@
 package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 
 /**
  *
@@ -14,83 +16,33 @@ import java.io.Serializable;
 public class Skills implements Serializable{
     
     // class instance variables
-    private double trueLove;
-    private double fencing;
-    private double archery;
-    private double cast;
-    private double wisdom;
-    private double intrepidity;
-    private double immunity;
+    private String skillName;
+    private double skillLevel;
 
     public Skills() {
     }
+ 
+    public String getskillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+
+    public double getSkillLevel() {
+        return skillLevel;
+    }
+
+    public void setSkillLevel(double skillLevel) {
+        this.skillLevel = skillLevel;
+    }
     
-    public double getTrueLove() {
-        return trueLove;
-    }
-
-    public void setTrueLove(double trueLove) {
-        this.trueLove = trueLove;
-    }
-
-    public double getFencing() {
-        return fencing;
-    }
-
-    public void setFencing(double fencing) {
-        this.fencing = fencing;
-    }
-
-    public double getArchery() {
-        return archery;
-    }
-
-    public void setArchery(double archery) {
-        this.archery = archery;
-    }
-
-    public double getCast() {
-        return cast;
-    }
-
-    public void setCast(double cast) {
-        this.cast = cast;
-    }
-
-    public double getWisdom() {
-        return wisdom;
-    }
-
-    public void setWisdom(double wisdom) {
-        this.wisdom = wisdom;
-    }
-
-    public double getIntrepidity() {
-        return intrepidity;
-    }
-
-    public void setIntrepidity(double intrepidity) {
-        this.intrepidity = intrepidity;
-    }
-
-    public double getImmunity() {
-        return immunity;
-    }
-
-    public void setImmunity(double immunity) {
-        this.immunity = immunity;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.trueLove) ^ (Double.doubleToLongBits(this.trueLove) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.fencing) ^ (Double.doubleToLongBits(this.fencing) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.archery) ^ (Double.doubleToLongBits(this.archery) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.cast) ^ (Double.doubleToLongBits(this.cast) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.wisdom) ^ (Double.doubleToLongBits(this.wisdom) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.intrepidity) ^ (Double.doubleToLongBits(this.intrepidity) >>> 32));
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.immunity) ^ (Double.doubleToLongBits(this.immunity) >>> 32));
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.skillName);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.skillLevel) ^ (Double.doubleToLongBits(this.skillLevel) >>> 32));
         return hash;
     }
 
@@ -106,33 +58,19 @@ public class Skills implements Serializable{
             return false;
         }
         final Skills other = (Skills) obj;
-        if (Double.doubleToLongBits(this.trueLove) != Double.doubleToLongBits(other.trueLove)) {
+        if (Double.doubleToLongBits(this.skillLevel) != Double.doubleToLongBits(other.skillLevel)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.fencing) != Double.doubleToLongBits(other.fencing)) {
+        if (!Objects.equals(this.skillName, other.skillName)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.archery) != Double.doubleToLongBits(other.archery)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.cast) != Double.doubleToLongBits(other.cast)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.wisdom) != Double.doubleToLongBits(other.wisdom)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.intrepidity) != Double.doubleToLongBits(other.intrepidity)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.immunity) != Double.doubleToLongBits(other.immunity)) {
-            return false;
-        }
+        
         return true;
     }
 
     @Override
     public String toString() {
-        return "Skills{" + "trueLove=" + trueLove + ", fencing=" + fencing + ", archery=" + archery + ", cast=" + cast + ", wisdom=" + wisdom + ", intrepidity=" + intrepidity + ", immunity=" + immunity + '}';
+        return "Skills{" + "skillName=" + skillName + ", skillLevel=" + skillLevel + '}';
     }
     
 }

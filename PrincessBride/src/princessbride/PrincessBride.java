@@ -87,13 +87,8 @@ public class PrincessBride {
         
         Skills skillsOne = new Skills();
         
-        skillsOne.setTrueLove(70);
-        skillsOne.setFencing(70);
-        skillsOne.setArchery(60);
-        skillsOne.setCast(65);
-        skillsOne.setWisdom(90);
-        skillsOne.setIntrepidity(80);
-        skillsOne.setImmunity(85);
+        skillsOne.setSkillName("Wisdom");
+        skillsOne.setSkillLevel(70);
         
         String skillsInfo = skillsOne.toString();
         System.out.println(skillsInfo);
