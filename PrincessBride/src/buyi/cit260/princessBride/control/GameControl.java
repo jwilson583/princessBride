@@ -11,22 +11,22 @@ package buyi.cit260.princessBride.control;
  */
 public class GameControl {
     
-    int defaulStrength = 100;
-    int miraclePotion = 100;
-    int travel = 1;
-    int run = 2;
-    int dodge = 4;
-    int attackE = 2;
-    int sword = 50;
-    int rock = 30;
-    int dagger = 10;
-    int iocanPowder = 100;
+    int startStrengthPt = 100;
+    int miraclePotionPt = 100;
+    int travelPt = 1;
+    int runPt = 2;
+    int dodgePt = 4;
+    int attackPt = 2;
+    int swordPt = 50;
+    int rockPt = 30;
+    int daggerPt = 10;
+    int iocanPowderPt = 100;
     int gameIndx = 2;
         
 
     
     
-    public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttackE) {
+    public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttack) {
                     
         if (numMiraclePotion < 0) {
             return -1;
@@ -44,11 +44,11 @@ public class GameControl {
             return -1;
         }
         
-        if (numAttackE < 0) {
+        if (numAttack < 0) {
             return -1;
         }
         
-        double strength = defaulStrength+miraclePotion*numMiraclePotion-travel*travelTime-run*runTime-dodge*numDodge-attackE*numAttackE;
+        double strength = startStrengthPt+miraclePotionPt*numMiraclePotion-travelPt*travelTime-runPt*runTime-dodgePt*numDodge-attackPt*numAttack;
         
         return strength;
     }
@@ -78,7 +78,7 @@ public class GameControl {
             return -1;
         }
         
-        double attack = (((sword*numSword)+(rock*numRock)+(dagger*numDagger))/(Math.pow(gameIndx, gameLevel)))+(iocanPowder*numIocanePowder);
+        double attack = (((swordPt*numSword)+(rockPt*numRock)+(daggerPt*numDagger))/(Math.pow(gameIndx, gameLevel)))+(iocanPowderPt*numIocanePowder);
         
         return attack;
     }
