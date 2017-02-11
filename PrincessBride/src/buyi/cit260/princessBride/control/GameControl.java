@@ -5,6 +5,8 @@
  */
 package buyi.cit260.princessBride.control;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Lai
@@ -22,9 +24,29 @@ public class GameControl {
     int daggerPt = 10;
     int iocanPowderPt = 100;
     int gameIndx = 2;
-        
-
+    String [] usedName = {"Game2", "Used Name", "Old Name"};
     
+    
+    public String getnewGame(String newName) {
+        if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 31)||(Arrays.asList(usedName).contains(newName))) {
+        return "Error";
+        }
+        
+        String newGame = newName;
+        
+        return newGame;
+    }    
+    
+    
+    public String getnewPlayer(String newName) {
+        if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 21)||(Arrays.asList(usedName).contains(newName))) {
+        return "Error";
+        }
+        
+        String newPlayer = newName;
+        
+        return newPlayer;
+    }   
     
     public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttack) {
                     
