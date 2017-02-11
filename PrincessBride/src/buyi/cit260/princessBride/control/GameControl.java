@@ -92,5 +92,9 @@ public class GameControl {
         
         return health;
     }
+
+    double calcVolume(int height, int width, int length) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
