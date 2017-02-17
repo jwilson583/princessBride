@@ -124,6 +124,9 @@ public class MainMenuView {
     private void displayHelpMenu() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("\n*** displayHelpMenu() function called ***");
+        HelpMenuView helpMenu= new HelpMenuView ();
+        helpMenu.displayHelpMenuView();
+        
     }
 
     private void saveGame() {
