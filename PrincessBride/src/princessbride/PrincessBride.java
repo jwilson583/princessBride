@@ -7,6 +7,7 @@ package princessbride;
 
 //All imports required by the classes done by Lai, Jack, Ben and Dan.
 
+import buyi.cit260.princessBride.view.StartProgramView;
 import byui.cit260.princessBride.model.BackPack;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Item;
@@ -30,6 +31,9 @@ public class PrincessBride {
      */
     public static void main(String[] args) {   
         
+        // create StartProgramVieewOrig and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
         
         // Testing classes by Jack 
 	Location locationOne = new Location(); 

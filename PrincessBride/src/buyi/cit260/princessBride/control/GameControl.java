@@ -5,11 +5,39 @@
  */
 package buyi.cit260.princessBride.control;
 
+import InitialPlayer.InitialPlayer;
+import byui.cit260.princessBride.model.Player;
+import java.util.Arrays;
+
 /**
  *
  * @author Lai
  */
 public class GameControl {
+    
+
+    /*public static Player createPlayer(String playersName) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** createPlayer() function called ***");
+        return new Player();*/
+    public static Player createPlayer(String name) {
+        
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        InitialPlayer.setPlayer(player); // save the player
+        
+        return player;
+    }
+
+    public static void createNewGame(Player player) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
     
     int startStrengthPt = 100;
     int miraclePotionPt = 100;
@@ -22,9 +50,29 @@ public class GameControl {
     int daggerPt = 10;
     int iocanPowderPt = 100;
     int gameIndx = 2;
-        
-
+    String [] usedName = {"Game2", "Used Name", "Old Name"};
     
+    
+    public String getnewGame(String newName) {
+        if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 31)||(Arrays.asList(usedName).contains(newName))) {
+        return "Error";
+        }
+        
+        String newGame = newName;
+        
+        return newGame;
+    }    
+    
+    
+    public String getnewPlayer(String newName) {
+        if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 21)||(Arrays.asList(usedName).contains(newName))) {
+        return "Error";
+        }
+        
+        String newPlayer = newName;
+        
+        return newPlayer;
+    }   
     
     public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttack) {
                     

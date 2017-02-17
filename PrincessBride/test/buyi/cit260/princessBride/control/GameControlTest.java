@@ -10,13 +10,273 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author edwinyam
+ * @author Lai
  */
 public class GameControlTest {
     
     public GameControlTest() {
     }
 
+    
+    /**
+     * Test of getnewGame method, of class GameControl.
+     */
+    @Test
+    public void testGetnewGame() {
+        System.out.println("getnewGame");
+                
+        /*******************************
+         *  Test GetNewGame case #1
+         *******************************/
+        System.out.println("\tTest getNewGame case #1");
+
+        // input values for test case 1
+        String newName = "Game1";
+        
+        // create instance of GameControl class
+        GameControl instance = new GameControl();
+        
+        String expResult = "Game1"; //expected output returned value
+        
+        // call function to run test
+        String result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #2
+         *******************************/
+        System.out.println("\tTest getNewGame case #2");
+
+        // input values for test case 2
+        newName = "";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #3
+         *******************************/
+        System.out.println("\tTest getNewGame case #3");
+
+        // input values for test case 3
+        newName = "This is a long name and not valid.";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #4
+         *******************************/
+        System.out.println("\tTest getNewGame case #4");
+
+        // input values for test case 4
+        newName = "Used Name";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #5
+         *******************************/
+        System.out.println("\tTest getNewGame case #5");
+
+        // input values for test case 5
+        newName = "A";
+        
+        expResult = "A"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #6
+         *******************************/
+        System.out.println("\tTest getNewGame case #6");
+
+        // input values for test case 6
+        newName = "My Game";
+        
+        expResult = "My Game"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewGame case #7
+         *******************************/
+        System.out.println("\tTest getNewGame case #7");
+
+        // input values for test case 7
+        newName = "abcdefghijklmnopqrst";
+        
+        expResult = "abcdefghijklmnopqrst"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewGame(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+    }
+    
+    
+    
+    /**
+     * Test of getnewPlayer method, of class GameControl.
+     */
+    @Test
+    public void testGetnewPlayer() {
+        System.out.println("getnewPlayer");
+                
+        /*******************************
+         *  Test GetNewPlayer case #1
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #1");
+
+        // input values for test case 1
+        String newName = "Name1";
+        
+        // create instance of GameControl class
+        GameControl instance = new GameControl();
+        
+        String expResult = "Name1"; //expected output returned value
+        
+        // call function to run test
+        String result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #2
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #2");
+
+        // input values for test case 2
+        newName = "";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #3
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #3");
+
+        // input values for test case 3
+        newName = "This is a very long name.";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #4
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #4");
+
+        // input values for test case 4
+        newName = "Old Name";
+        
+        expResult = "Error"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #5
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #5");
+
+        // input values for test case 5
+        newName = "P";
+        
+        expResult = "P"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #6
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #6");
+
+        // input values for test case 6
+        newName = "My Name";
+        
+        expResult = "My Name"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+
+        
+        /*******************************
+         *  Test GetNewPlayer case #7
+         *******************************/
+        System.out.println("\tTest getNewPlayer case #7");
+
+        // input values for test case 7
+        newName = "abcdefghijklmnopqrst";
+        
+        expResult = "abcdefghijklmnopqrst"; //expected output returned value
+        
+        // call function to run test
+        result = instance.getnewPlayer(newName);
+        
+        // compare expected return value with actual value returned
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of calcStrength method, of class GameControl.
