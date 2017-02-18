@@ -7,7 +7,7 @@ package buyi.cit260.princessBride.control;
 
 /**
  *
- * @author school
+ * @author Ben Lacusta
  */
 public class InventoryControl {
     
