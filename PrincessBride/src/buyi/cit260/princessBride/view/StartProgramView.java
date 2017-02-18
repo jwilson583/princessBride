@@ -21,6 +21,7 @@ public class StartProgramView {
         
         // promptMessage = "Please enter your name"
         this.promptMessage = "\nPlease enter your name: ";
+        
         // display the baner when view is created
         this.displayBanner();
     }
@@ -74,19 +75,6 @@ public class StartProgramView {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** getPlayersName() called ***");
         //return "Joe";
-
-        /*WHILE a valid value has not been entered
-        DISPLAY a message prompting the user to enter a value
-        GET the value entered from keyboard
-        Trim front and trailing blanks off of the value
-        IF the length of the value is blank THEN
-          DISPLAY “Invalid value: The value cannot be blank”
-          CONTINUE
-        ENDIF
-        BREAK
-        ENDWHILE
-        RETURN value END
-        */
      
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = ""; // value to be returned
@@ -117,9 +105,9 @@ public class StartProgramView {
         //System.out.println("\n*** doAction() called ***");
         //return true;
         
-        if (playersName.length() < 2) {
+        if ((playersName.length() < 2) || (playersName.length()) > 20) {
             System.out.println("\nInvalid player's name: "
-                             + "The name must be greater than one character in length");
+                             + "The name must be greater than 1 and less than 20 characters in length");
             return false;
         }
 

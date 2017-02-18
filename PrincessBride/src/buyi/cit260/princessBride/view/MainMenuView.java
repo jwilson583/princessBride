@@ -22,15 +22,15 @@ public class MainMenuView {
                   + "\n----------------------------------------"
                   + "\n| Main Menu                            |"
                   + "\n----------------------------------------"
-                  + "\nN - Start new game"
-                  + "\nG - Get and start save game"
-                  + "\nH - Get help on how to play the game"
-                  + "\nS - Save game"
-                  + "\nQ - Quit"
+                  + "\n N - Start new game"
+                  + "\n G - Get and start save game"
+                  + "\n H - Get help on how to play the game"
+                  + "\n S - Save game"
+                  + "\n Q - Quit"
                   + "\n----------------------------------------";
     }
     
-    public void displayMainMenuView() {
+    void displayMainMenuView() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** displayMenu() function called ***");
         
