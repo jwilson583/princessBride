@@ -55,7 +55,7 @@ public class MainMenuView {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** getMenuOption() function call ***");
         //return "N";
-        System.out.println(this.menu); // display Menu Option
+        //System.out.println(this.menu); // display Menu Option
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not valid
@@ -78,14 +78,14 @@ public class MainMenuView {
         return value; // return the value entered
     }
 
-    private boolean doAction(String menuOption) {
+    private boolean doAction(String choice) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** doAction() function called ***)");
         //return true;
         
-        menuOption = menuOption.toUpperCase(); // convert menuOption to upper case
+        choice = choice.toUpperCase(); // convert menuOption to upper case
         
-        switch (menuOption) {
+        switch (choice) {
             case "N": // create and start a new game
                 this.startNewGame();
                 break;
