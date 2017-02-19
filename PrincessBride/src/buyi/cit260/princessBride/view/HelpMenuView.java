@@ -99,7 +99,7 @@ public class HelpMenuView {
 
     private void startGoal() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** startGoal() function called ***");
+        System.out.println("\n*The goal of the game is to find Westleys True love, make friends battle enemies*"   );
     }
 
     private void startExistingGame() {
@@ -109,7 +109,7 @@ public class HelpMenuView {
 
     private void startWeaponList() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** startWeaponsList() function called ***");
+        System.out.println("\n***Rock-Throw it at his Head Sword-Fence with your left hand first*");
     }
 
     private void displayMainMenu() {
