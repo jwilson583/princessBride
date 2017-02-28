@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Jack Wilson
  */
 public class HelpMenuView {
-   
+
     private String menu;
     
     public HelpMenuView() {
