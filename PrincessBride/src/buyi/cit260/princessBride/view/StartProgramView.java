@@ -22,7 +22,7 @@ public class StartProgramView {
         // promptMessage = "Please enter your name"
         this.promptMessage = "\nPlease enter your name: ";
         
-        // display the baner when view is created
+        // display the banner when view is created
         this.displayBanner();
     }
     
@@ -75,7 +75,7 @@ public class StartProgramView {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** getPlayersName() called ***");
         //return "Joe";
-     
+
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String value = ""; // value to be returned
         boolean valid = false; // initialize to not valid

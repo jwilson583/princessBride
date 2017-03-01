@@ -42,6 +42,5 @@ public class InventoryControl {
     
        return totalVolume;
         }
-   
             }
             

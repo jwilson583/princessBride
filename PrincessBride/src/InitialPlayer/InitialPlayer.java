@@ -23,7 +23,7 @@ public class InitialPlayer {
             return currentGame;
         }
         
-        public static void setCurrentgame(Game currentGame) {
+        public static void setCurrentGame(Game currentGame) {
             InitialPlayer.currentGame = currentGame;
         }
         
