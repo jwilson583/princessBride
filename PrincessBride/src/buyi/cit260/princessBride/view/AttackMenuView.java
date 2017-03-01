@@ -5,6 +5,7 @@
  */
 package buyi.cit260.princessBride.view;
 
+import buyi.cit260.princessBride.control.AttackControl;
 import java.util.Scanner;
 
 /**
@@ -71,7 +72,9 @@ public class AttackMenuView {
     }
     
     private void attackCharacter() {
+    AttackControl attack= new AttackControl();
     System.out.println("\n ***Attacking***");
+    
     }
    
     private void fleeMap(){
