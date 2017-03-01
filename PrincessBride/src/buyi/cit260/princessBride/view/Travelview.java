@@ -10,9 +10,11 @@ package buyi.cit260.princessBride.view;
  * @author Ben
  */
 
-public class Travelview(){
-private String choice;
-                ("\n"
+public class Travelview{
+private String menu;
+   public Travelview(){
+        this.menu=
+                  "\n"
                 + "\n-----------"
                 + "\nACTION MENU"
                 + "\n-----------"  
@@ -21,8 +23,8 @@ private String choice;
                 + "\nP = Pick up an Item"
                 + "\nA = interAct with the environment"
                 + "\nH = Help Menu"
-                + "\nQ = Quit back to GAME MENU");
-}
+                + "\nQ = Quit back to GAME MENU";
+    }
 public boolean doAction(String value) {
         
         value = value.toUpperCase();
@@ -44,7 +46,7 @@ public boolean doAction(String value) {
                 this.displayHelpMenu();
                 break;
             default:
-                this.console.println("\n***Invalid selection, please enter a menu option***");
+                System.out.println("\n***Invalid selection, please enter a menu option***");
                 break;
         }
 
@@ -54,26 +56,26 @@ public boolean doAction(String value) {
     }
 
     private void openDoor() {
-        this.console.println("\n***openDoor called***");
+        System.out.println("\n***openDoor called***");
     }
 
     private void talk() {
-        this.console.println("\n***talk called***");
+        System.out.println("\n***talk called***");
     }
 
     private void pickUpItem() {
-        this.console.println("\n***pickUpItem called***");
+        System.out.println("\n***pickUpItem called***");
     }
 
     private void interact() {
-        this.console.println("\n***interact called");
+        System.out.println("\n***interact called");
     }
 
     private void displayHelpMenu() {
         // Create HelpMenuView object
-        HelpMenuView helpMenuView = new HelpMenuView();
+        HelpMenuView helpMenu = new HelpMenuView();
                 
         //display the help menu
-        HelpMenuView.display();  
+        helpMenu.displayHelpMenuView();  
     }
 }
