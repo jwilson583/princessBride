@@ -30,7 +30,7 @@ public class MainMenuView {
                   + "\n----------------------------------------";
     }
     
-    void displayMainMenuView() {
+    public void displayMainMenuView() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** displayMenu() function called ***");
         
@@ -113,7 +113,8 @@ public class MainMenuView {
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayGameMenuView();
+
     }
 
     private void startExistingGame() {
@@ -123,7 +124,7 @@ public class MainMenuView {
 
     private void displayHelpMenu() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** displayHelpMenu() function called ***");
+//        System.out.println("\n*** displayHelpMenu() function called ***");
         HelpMenuView helpMenu= new HelpMenuView ();
         helpMenu.displayHelpMenuView();
         
