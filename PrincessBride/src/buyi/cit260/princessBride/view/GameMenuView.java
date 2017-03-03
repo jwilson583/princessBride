@@ -28,7 +28,7 @@ public class GameMenuView extends View{
                   + "\n A - Display Attack"
                   + "\n L - Load Game"
                   + "\n G - Save Game"
-                  + "\n R - Return"
+                  + "\n Q - Return"
                   + "\n----------------------------------------");
     }
    @Override 
