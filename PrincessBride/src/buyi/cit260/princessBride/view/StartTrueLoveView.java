@@ -263,6 +263,6 @@ public class StartTrueLoveView {
 
     private void displayHelp() {
         HelpMenuView helpMenu= new HelpMenuView ();
-        helpMenu.displayHelpMenuView();
+        helpMenu.display();
     }
 }

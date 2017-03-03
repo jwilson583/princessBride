@@ -66,7 +66,7 @@ public class MainMenuView extends View{
         
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.display();
 
     }
 
@@ -79,7 +79,7 @@ public class MainMenuView extends View{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        System.out.println("\n*** displayHelpMenu() function called ***");
         HelpMenuView helpMenu= new HelpMenuView ();
-        helpMenu.displayHelpMenuView();
+        helpMenu.display();
         
     }
 

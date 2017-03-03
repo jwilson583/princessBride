@@ -129,6 +129,6 @@ public class MiracleMaxStoreView {
 
     private void displayGameMenuView() {
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayGameMenuView();
+        gameMenu.display();
     }
 }
