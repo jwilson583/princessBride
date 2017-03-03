@@ -10,11 +10,12 @@ package buyi.cit260.princessBride.view;
  * @author Ben
  */
 
-public class Travelview {
+public class Travelview extends View {
 private String menu;
    public Travelview(){
-        this.menu=
-                  "\n"
+        
+       
+            super("\n"
                 + "\n-----------"
                 + "\nACTION MENU"
                 + "\n-----------"  
@@ -23,9 +24,10 @@ private String menu;
                 + "\nP = Pick up an Item"
                 + "\nA = interAct with the environment"
                 + "\nH = Help Menu"
-                + "\nQ = Quit back to GAME MENU";
+                + "\nQ = Quit back to GAME MENU");
     }
-public boolean doAction(String value) {
+@Override
+   public boolean doAction(String value) {
         
         value = value.toUpperCase();
         
@@ -76,6 +78,6 @@ public boolean doAction(String value) {
         HelpMenuView helpMenu = new HelpMenuView();
                 
         //display the help menu
-        helpMenu.displayHelpMenuView();  
+        helpMenu.display();  
     }
 }

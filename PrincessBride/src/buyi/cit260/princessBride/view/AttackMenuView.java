@@ -12,52 +12,23 @@ import java.util.Scanner;
  *
  * @author Jack Wilson
  */
-public class AttackMenuView {
+public class AttackMenuView extends View {
    
-    private String menu;
-    
     public AttackMenuView () {
-       this.menu = "\n"
+             super("\n"
                  + "\n------------------------------"
                  + "\n|   You Are Being Attacked   |"
                  + "\n------------------------------"
                  + "\n|         A- Attack          |"
                  + "\n|          F- Flee           |"
                  + "\n|        S- Surrender        |"
-                 + "\n------------------------------";
+                 + "\n------------------------------");
     }   
-    void displayAttackMenuView () {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption ();
-            if (menuOption.toUpperCase().equals ("S"))
-                return;
-            done = this.doAction(menuOption);
-        }
-        while (!done);
-}
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-           System.out.println("\n" +this.menu);
-           value = keyboard.nextLine();
-           value = value.trim();
-           
-           if (value.length()<1 ){
-               System.out.println("\n Invalid Value: Value Cannot be Blank!");
-               continue;
-           }
-           break;
-        }
-        return value;
-    }
-    private boolean doAction (String choice){
-        choice = choice.toUpperCase();
+@Override
+    public boolean doAction (String value){
+        value = value.toUpperCase();
           
-        switch (choice){
+        switch (value){
             case "A":
             this.attackCharacter();
             break;
