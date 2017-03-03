@@ -10,7 +10,7 @@ package buyi.cit260.princessBride.view;
  * @author Ben
  */
 
-public class Travelview{
+public class Travelview {
 private String menu;
    public Travelview(){
         this.menu=

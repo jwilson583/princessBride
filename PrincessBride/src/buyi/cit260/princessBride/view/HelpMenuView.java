@@ -116,7 +116,7 @@ public class HelpMenuView {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("\n*** displayMainMenu() function called ***");
             MainMenuView mainMenu= new MainMenuView ();
-            mainMenu.displayMainMenuView();
+            mainMenu.display();
     
     }
 }
