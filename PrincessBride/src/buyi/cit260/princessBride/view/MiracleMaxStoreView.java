@@ -11,22 +11,15 @@ import java.util.Scanner;
  *
  * @author lai
  */
-public class MiracleMaxStoreView {
+public class MiracleMaxStoreView extends View {
 
-    private String promptMessage;
-    private String menu;
     
     public MiracleMaxStoreView() {
         
-        // display the banner when view is created
-        this.displayBanner();
-    }
-    
-    // banner and menu
-    private void displayBanner() {
-    
-        System.out.println(
-                "\n*******************************************************"
+        // display the banner and menu
+
+        
+        super("\n*******************************************************"
               + "\n*                                                     *"
               + "\n* Welcome to Miracle Max Store!                       *"
               + "\n* Wesley, you will need the necessary items with you  *"
@@ -38,61 +31,27 @@ public class MiracleMaxStoreView {
               + "\n* to next level.                                      *"
               + "\n*                                                     *"
               + "\n*******************************************************"
-              );
-
+              + "\n"
+              + "\n"
+            + "\n----------------------------------------"
+            + "\n| Miracle Max Store Item Menu          |"
+            + "\n----------------------------------------"
+            + "\n M - Miracle Potion"
+            + "\n E - Egg"
+            + "\n L - Potion of True Love"
+            + "\n Q - Return to Game Menu"
+            + "\n----------------------------------------");
         
-        this.menu = "\n"
-                  + "\n----------------------------------------"
-                  + "\n| Miracle Max Store Item Menu          |"
-                  + "\n----------------------------------------"
-                  + "\n M - Miracle Potion"
-                  + "\n E - Egg"
-                  + "\n L - Potion of True Love"
-                  + "\n Q - Return to Game Menu"
-                  + "\n----------------------------------------";
     }
     
-    void displayMiracleMaxStoreView() {
-        
-        boolean done = false; // set flag to not done
-        do {
-            // prompt for and get item
-            String itemOption = this.getItemOption();
-            if (itemOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the store
-            
-            // do the requested action and display the next view
-            done = this.doAction(itemOption);
-            
-        } while (!done);
-    }
 
-    private String getItemOption() {
-        //System.out.println(this.menu); // display Item Option
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; // value to be returned
-        boolean valid = false; // initialize to not valid
-     
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.menu);
-         
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-         
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            break; //end the loop
-        }
-        return value; // return the value entered
-    }
+@Override
 
-    private boolean doAction(String choice) {
+    public boolean doAction(String value) {
         
-        choice = choice.toUpperCase(); // convert itemOption to upper case
+        value = value.toUpperCase(); // convert itemOption to upper case
         
-        switch (choice) {
+        switch (value) {
             case "M": // create and start Miracle Potion Menu
                 this.startMiraclePotion();
                 break;
@@ -102,7 +61,7 @@ public class MiracleMaxStoreView {
             case "L": // get and start Love Menu
                 this.startTrueLoveView();
                 break;
-            case "R": // return to Main Menu
+            case "Q": // return to Game Menu
                 this.displayGameMenuView();
                 break;   
             default:
@@ -124,7 +83,7 @@ public class MiracleMaxStoreView {
 
     private void startTrueLoveView() {
         StartTrueLoveView trueLove= new StartTrueLoveView();
-        trueLove.displayStartTrueLoveView();
+        trueLove.display();
     }
 
     private void displayGameMenuView() {

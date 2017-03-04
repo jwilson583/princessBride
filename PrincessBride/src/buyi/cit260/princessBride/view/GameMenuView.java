@@ -23,7 +23,7 @@ public class GameMenuView extends View{
                   + "\n----------------------------------------"
                   + "\n S - Miracle Max Store"
                   + "\n M - Display Map"
-                  + "\n B - Dispaly Backpage"
+                  + "\n B - Dispaly Backpack"
                   + "\n K - Display Skills"
                   + "\n A - Display Attack"
                   + "\n L - Load Game"
@@ -75,7 +75,7 @@ public class GameMenuView extends View{
     private void MiracleMaxStoreView() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         MiracleMaxStoreView MiracleMaxStore = new MiracleMaxStoreView();
-        MiracleMaxStore.displayMiracleMaxStoreView();
+        MiracleMaxStore.display();
     }
     private void displayMap() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

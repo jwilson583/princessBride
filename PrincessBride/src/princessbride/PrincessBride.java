@@ -33,7 +33,7 @@ public class PrincessBride {
         
         // create StartProgramVieewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.display();
         
         // Testing classes by Jack 
 	Location locationOne = new Location(); 

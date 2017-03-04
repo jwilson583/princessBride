@@ -11,16 +11,16 @@ import java.util.Scanner;
  *
  * @author Lai
  */
-public class StartTrueLoveView {
+public class StartTrueLoveView extends View {
 
-    private String menu;
+    //private String menu;
     private int inventoryLove = 1;
     private boolean trueLove;
     
     // display start ture menu
     public StartTrueLoveView() {
         
-        this.menu = "\n"
+        super ("\n"
                    + "\n ----------------------------------------"
                    + "\n|   True Love Menu                      |"
                    + "\n ----------------------------------------"
@@ -28,13 +28,13 @@ public class StartTrueLoveView {
                    + "\n I - Inventory"
                    + "\n H - Help"
                    + "\n Q - Return"
-                   + "\n----------------------------------------"; 
+                   + "\n----------------------------------------"); 
     }
 
     /**
      *
      */
-    void displayStartTrueLoveView() {
+    /*void displayStartTrueLoveView() {
     
         boolean done = false; // set flag to not done
         do {
@@ -69,12 +69,12 @@ public class StartTrueLoveView {
         }
         
         return menuLove;
-    }
+    }*/
 
-    private boolean doAction(String menuLove) {
+    public boolean doAction(String value) {
 
-        menuLove = menuLove.toUpperCase(); // convert menuLove to upper case
-        switch (menuLove) {
+        value = value.toUpperCase(); // convert menuLove to upper case
+        switch (value) {
             case "S": // start True Love section
                 if (inventoryLove > 0) {
                     this.setTrueLove();
@@ -98,9 +98,6 @@ public class StartTrueLoveView {
     
     private void setTrueLove() {
         
-   
-              
-        
         String request1 = 
                 "\n*******************************************************"
                   + "\n*                                                     *"
@@ -112,8 +109,9 @@ public class StartTrueLoveView {
                   + "\n* taunt you as the farm boy.                          *"
                   + "\n* In order to prove you have the true love with her.  *"
                   + "\n* You must response to all her requests correctly     *"
-                  + "\n* to prove you have developed the 'True Love' with    *"
-                  + "\n* her.                                                *"
+                  + "\n* to prove that you have developed the 'True Love'    *"
+                  + "\n* with her.                                           *"
+                  + "\n                                                      *"
                   + "\n* Here are of five her requests:                      *"
                   + "\n*                                                     *"
                   + "\n*******************************************************"
