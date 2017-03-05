@@ -28,7 +28,7 @@ public class GameMenuView extends View{
                   + "\n A - Display Attack"
                   + "\n L - Load Game"
                   + "\n G - Save Game"
-                  + "\n Q - Return"
+                  + "\n Q - Return to Main Menu"
                   + "\n----------------------------------------");
     }
    @Override 
@@ -41,16 +41,16 @@ public class GameMenuView extends View{
                 this.MiracleMaxStoreView();
                 break;
             case "M": // get and start an existing game
-                this.displayMap();
+                this.MapMenuView();
                 break;
             case "B": // display backpack
-                this.displayBackpack();
+                this.BackpackMenuView();
                 break;
             case "K": // display skills
                 this.displaySkills();
                 break;
             case "A": // display the attack menu
-                this.displayAttack();
+                this.AttackMenuView();
                 break;
             case "L": // Load Game
                 this.loadGame();
@@ -73,25 +73,24 @@ public class GameMenuView extends View{
 //    }
 
     private void MiracleMaxStoreView() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         MiracleMaxStoreView MiracleMaxStore = new MiracleMaxStoreView();
         MiracleMaxStore.display();
     }
-    private void displayMap() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** dispalyMap() function called ***");
+    private void MapMenuView() {
+        MapMenuView MapMenu = new MapMenuView();
+        MapMenu.display();
     }
-    private void displayBackpack() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** dispalyBackpack() function called ***");
+    private void BackpackMenuView() {
+        BackpackMenuView BackpackMenu = new BackpackMenuView();
+        BackpackMenu.display();
     }
     private void displaySkills() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("\n*** displaySkills() function called ***");
     }
-    private void displayAttack() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** displayAttack() function called ***");
+    private void AttackMenuView() {
+        AttackMenuView AttackMenu = new AttackMenuView();
+        AttackMenu.display();
     }
     private void loadGame() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
