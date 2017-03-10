@@ -6,6 +6,9 @@
 package buyi.cit260.princessBride.control;
 
 import InitialPlayer.InitialPlayer;
+import byui.cit260.princessBride.model.Game;
+import byui.cit260.princessBride.model.Item;
+import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
 import java.util.Arrays;
 
@@ -30,8 +33,21 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        System.out.println("\n*** createNewGame stub function called ***");
+        
+        Game game = new Game(); // create new game
+        InitialPlayer.setCurrentGame(game); // save in InitialPlayer
+        
+        game.setPlayer(player);
+        
+        //create the inventory list and save in the game
+        Item[] itemList = GameControl.createItemList();
+        game.setItem(itemList);
+        
+        Map map = MapControl.createMap(); // create and initialize new map
+        game.setMap(map); // save map in game
+        
+        // move actors to starting position in the map
+        MapControl.moveActorsToStartingLocation(map);
     }
     
     int startStrengthPt = 100;
@@ -97,8 +113,6 @@ public class GameControl {
     }
 
     
-    
-    
     public double calcAttack(int numSword, int numRock, int numDagger, int numIocanePowder, int gameLevel) {
         
         if ((gameLevel < 0) || (gameLevel > 3)) {
@@ -125,8 +139,6 @@ public class GameControl {
         
         return attack;
     }
-
-    
     
     
     public double calcHealth(double strength, double attack) {
@@ -137,6 +149,10 @@ public class GameControl {
     }
 
     double calcVolume(int height, int width, int length) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+        private static Item[] createItemList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

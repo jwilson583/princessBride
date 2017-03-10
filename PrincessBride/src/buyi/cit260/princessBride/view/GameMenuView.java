@@ -5,6 +5,8 @@
  */
 package buyi.cit260.princessBride.view;
 
+import InitialPlayer.InitialPlayer;
+import buyi.cit260.princessBride.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -66,11 +68,11 @@ public class GameMenuView extends View{
         return false;
     }
 
-//    private void startNewGame() {
-//        GameControl.createNewGame(InitialPlayer.getPlayer());
-//        GameMenuView gameMenu = new GameMenuView();
-//        gameMenu.displayMenu();
-//    }
+    private void startNewGame() {
+        GameControl.createNewGame(InitialPlayer.getPlayer());
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }
 
     private void MiracleMaxStoreView() {
         MiracleMaxStoreView MiracleMaxStore = new MiracleMaxStoreView();
@@ -99,5 +101,9 @@ public class GameMenuView extends View{
     private void saveGame() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("\n*** saveGame() function called ***");
+    }
+
+    private void displayMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

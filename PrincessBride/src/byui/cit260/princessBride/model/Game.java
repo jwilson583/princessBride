@@ -15,6 +15,9 @@ public class Game implements Serializable{
     
     private double totalTime;
     private int noPeople;
+    private Player player;
+    private Item[] item;
+    private Map map;
 
     public Game() {
     }
@@ -67,6 +70,18 @@ public class Game implements Serializable{
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
+    }
+
+    public void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setItem(Item[] itemList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setMap(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

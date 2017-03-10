@@ -13,7 +13,7 @@ import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.Npc;
+import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Skills;
@@ -40,8 +40,7 @@ public class PrincessBride {
         locationOne.setRow(15);
         locationOne.setColumn(34);
         locationOne.setVisited(true);
-        locationOne.setAmountRemaining(25);
-        
+              
         String locationInfo = locationOne.toString();
         System.out.println(locationInfo);
 
@@ -137,18 +136,7 @@ public class PrincessBride {
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
         
-        
-        NPC npcOne = new NPC();
-        npcOne.setName("Goblin");
-        npcOne.setHealth(10.0);
-        npcOne.setDefence(5.0);
-        npcOne.setSkill("sword");
-        npcOne.setDescription("Green and Scary");
-
-        String npcinfo = npcOne.toString();
-        System.out.println(npcinfo);
-
-    }
+        }
 
     
 }
