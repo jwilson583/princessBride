@@ -60,8 +60,7 @@ public class MainMenuView extends View{
     }
 
     private void startNewGame() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //System.out.println("\n*** startNewGame() function called ***");
+
         GameControl.createNewGame(InitialPlayer.getPlayer());
         
         //display the game menu
@@ -76,15 +75,12 @@ public class MainMenuView extends View{
     }
 
     private void displayHelpMenu() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//        System.out.println("\n*** displayHelpMenu() function called ***");
         HelpMenuView helpMenu= new HelpMenuView ();
         helpMenu.display();
         
     }
 
     private void saveGame() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("\n*** saveGame() function called ***");
     }
     
