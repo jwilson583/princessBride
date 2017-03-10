@@ -13,7 +13,7 @@ import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Item;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-import byui.cit260.princessBride.model.NPC;
+import byui.cit260.princessBride.model.Npc;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Skills;
