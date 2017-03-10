@@ -149,11 +149,13 @@ public class GameControl {
     }
 
     double calcVolume(int height, int width, int length) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** calcVolume() function called ***");
+        return 0;
     }
     
         private static Item[] createItemList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** createItemList() function called ***");
+        return null;
     }
     
 }
