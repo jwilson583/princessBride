@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 /**
  *
@@ -16,8 +17,25 @@ public class Location implements Serializable{
     private int column;
     private boolean visited;
     private int amountRemaining;
+    private Scene scene;
+    private ArrayList<Actor> actors;
+
+     public Location(int row, int column, Scene scene, ArrayList<Actor> actors) {
+        this.row = row;
+        this.column = column;
+        this.visited = false;
+        this.scene = scene;
+        this.actors = actors;
+    }
+    
 
     public Location() {
+        this.actors = new ArrayList<Actor>();
+    }
+
+    public Location(int row, int column) {
+        this.row = row;
+        this.column = column;
     }
 
     public int getRow() {
@@ -35,7 +53,7 @@ public class Location implements Serializable{
     public void setColumn(int column) {
         this.column = column;
     }
-
+    
     public boolean isVisited() {
         return visited;
     }
@@ -43,30 +61,55 @@ public class Location implements Serializable{
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
-
-    public int getAmountRemaining() {
-        return amountRemaining;
+    
+    public Scene getScene() {
+        return scene;
     }
 
-    public void setAmountRemaining(int amountRemaining) {
-        this.amountRemaining = amountRemaining;
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public ArrayList<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(ArrayList<Actor> actors) {
+        this.actors = actors;
+    }
+    
+    public void removeActor(Actor actor) {
+        if (actor == null) {
+            return;
+        }
+        this.actors.remove(actor);
+    }
+    
+        
+    public void addActor(Actor actor) {
+        if (actor == null || this.actors.contains(actor)) {
+            return;
+        }
+            
+        this.actors.add(actor);
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", column=" + column + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.row;
-        hash = 89 * hash + this.column;
-        hash = 89 * hash + (this.visited ? 1 : 0);
-        hash = 89 * hash + this.amountRemaining;
+        int hash = 5;
+        hash = 67 * hash + this.row;
+        hash = 67 * hash + this.column;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -80,19 +123,10 @@ public class Location implements Serializable{
         if (this.column != other.column) {
             return false;
         }
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (this.amountRemaining != other.amountRemaining) {
-            return false;
-        }
         return true;
     }
+    
+    
 
-    @Override
-    public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
-    }
-    
-    
+        
 }
