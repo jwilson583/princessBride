@@ -111,6 +111,14 @@ public class Item implements Serializable{
     public String toString() {
         return "Item{" + "name=" + name + ", type=" + type + ", pointRequired=" + pointRequired + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
+
+    public void setDescription(String round_and_full_of_surprises) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setAmmount(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
