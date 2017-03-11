@@ -19,15 +19,15 @@ public class MainMenuView extends View{
     
                 public MainMenuView (){
                     super("\n"
-                  + "\n----------------------------------------"
-                  + "\n| Main Menu                            |"
-                  + "\n----------------------------------------"
-                  + "\n N - Start new game"
-                  + "\n G - Get and start save game"
-                  + "\n H - Get help on how to play the game"
-                  + "\n S - Save game"
-                  + "\n Q - Quit"
-                  + "\n----------------------------------------");
+                  + "\n ----------------------------------------"
+                  + "\n|      Main Menu                         |"
+                  + "\n ----------------------------------------"
+                  + "\n  N - Start new game"
+                  + "\n  G - Get and start save game"
+                  + "\n  H - Get help on how to play the game"
+                  + "\n  S - Save game"
+                  + "\n  Q - Quit"
+                  + "\n-----------------------------------------");
     }
     
     
@@ -70,7 +70,6 @@ public class MainMenuView extends View{
     }
 
     private void startExistingGame() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         System.out.println("\n*** startExistingGame() function called ***");
     }
 

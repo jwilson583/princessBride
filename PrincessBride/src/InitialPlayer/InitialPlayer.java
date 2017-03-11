@@ -35,6 +35,10 @@ public class InitialPlayer {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             InitialPlayer.player = player; 
         }
+
+    public static Object getRowCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
 

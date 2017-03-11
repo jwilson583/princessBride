@@ -7,17 +7,16 @@ package byui.cit260.princessBride.model;
 
 /**
  *
- * @author Lai
+ * @author edwinyam
  */
-public enum Item {
-    trueLove,
-    sword,
-    rock,
-    dagger,
-    iocanePowder,
-    moneyBag,
-    miraclePotions,
-    map,
-    holocaustCloak,
-    egg;
+public enum SceneType {
+    florinFarm,
+    cliffsOfInsanity,
+    guilderFrontier,
+    fireSwamp,
+    greenland,
+    thievesForest,
+    pitOfDespair,
+    florinCastle;
 }
+

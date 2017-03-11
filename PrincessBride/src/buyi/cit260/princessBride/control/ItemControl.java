@@ -5,7 +5,7 @@
  */
 package buyi.cit260.princessBride.control;
 
-import byui.cit260.princessBride.model.Item;
+import byui.cit260.princessBride.model.InventoryItem;
 
 /**
  *
@@ -13,24 +13,24 @@ import byui.cit260.princessBride.model.Item;
  */
 public class ItemControl {
     
- static Item[] createInventory() {
+ static InventoryItem[] createInventory() {
         
         //created array (list) of inventory items
-        Item[] inventory = new Item[3];
+        InventoryItem[] inventory = new InventoryItem[3];
         
-        Item egg = new Item();
+        InventoryItem egg = new InventoryItem();
         egg.setName("Egg");
         egg.setDescription("Round and full of surprises");
         egg.setAmmount(0);
         inventory[ItemEnum.egg.ordinal()] = egg;
         
-        Item MiraclePotion = new Item();
+        InventoryItem MiraclePotion = new InventoryItem();
         MiraclePotion.setName("Miracle Potion");
         MiraclePotion.setDescription("aka its kind of a big deal potion");
         MiraclePotion.setAmmount(0);
         inventory[ItemEnum.MiraclePotion.ordinal()] = MiraclePotion;
         
-        Item trueLove = new Item();
+        InventoryItem trueLove = new InventoryItem();
         trueLove.setName("True Love");
         trueLove.setDescription("Evertything you've ever wanted in a pill");
         trueLove.setAmmount(0);

@@ -10,7 +10,7 @@ package princessbride;
 import buyi.cit260.princessBride.view.StartProgramView;
 import byui.cit260.princessBride.model.BackPack;
 import byui.cit260.princessBride.model.Game;
-import byui.cit260.princessBride.model.Item;
+import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Actor;
@@ -76,8 +76,8 @@ public class PrincessBride {
         System.out.println(trapsInfo);
    
        
-        //added Item and Skills entries by Lai
-        Item itemOne = new Item();  
+        //added InventoryItem and Skills entries by Lai
+        InventoryItem itemOne = new InventoryItem();  
         
         itemOne.setName("Rock");
         itemOne.setType("heavy");
@@ -101,7 +101,7 @@ public class PrincessBride {
         //Class 1
         Game firstGame = new Game();
         firstGame.setTotalTime(1.45);
-        firstGame.setNoPeople(4);
+        firstGame.setNoPeople(1);
         
         String gameInfo = firstGame.toString();
         System.out.println(gameInfo);

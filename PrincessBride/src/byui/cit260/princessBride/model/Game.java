@@ -14,10 +14,11 @@ import java.io.Serializable;
 public class Game implements Serializable{
     
     private double totalTime;
-    private int noPeople;
+    private long noPeople;
     private Player player;
-    private Item[] item;
+    private InventoryItem[] inventory;
     private Map map;
+    private BackPack backPack;
 
     public Game() {
     }
@@ -30,15 +31,42 @@ public class Game implements Serializable{
         this.totalTime = totalTime;
     }
 
-    public int getNoPeople() {
+    public long getNoPeople() {
         return noPeople;
     }
 
-    public void setNoPeople(int noPeople) {
+    public void setNoPeople(long noPeople) {
         this.noPeople = noPeople;
     }
 
-    @Override
+        public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+        public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+    
+    
+        public BackPack getBackPack() {
+        return backPack;
+    }
+
+    public void setBackPack(BackPack backPack) {
+        this.backPack = backPack;
+    }
+    
+    
+    
+    /*@Override
     public int hashCode() {
         int hash = 7;
         hash = 79 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
@@ -65,27 +93,34 @@ public class Game implements Serializable{
             return false;
         }
         return true;
-    }
+    }*/
 
-    @Override
+    //@Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + ", noPeople=" + noPeople + '}';
     }
 
-    public void setPlayer(Player player) {
+    /*public void setPlayer(Player player) {
         System.out.println("\n*** setPlayer() function called ***");
     }
 
-    public void setItem(Item[] itemList) {
+    public void setItem(InventoryItem[] itemList) {
         System.out.println("\n*** setItem() function called ***");
-    }
+    }*/
 
     public void setMap(Map map) {
         System.out.println("\n*** setMap() function called ***");
     }
-    
-    
-    
-    
-    
+
+    //public void setInventory(InventoryItem[] inventoryList) {
+    //    System.out.println("\n*** setInventory() function called ***");
+    //}
+
+    //public InventoryItem[] getInventory() {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
+
+    public Map getMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

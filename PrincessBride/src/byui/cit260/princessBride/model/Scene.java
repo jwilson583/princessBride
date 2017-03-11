@@ -18,6 +18,8 @@ public class Scene implements Serializable{
     private String description; 
     private double travelTime;
     private String type;
+    private String mapSymbol;
+    private boolean blocked;
 
     public Scene() {
     }
@@ -46,6 +48,22 @@ public class Scene implements Serializable{
 
     public void setType(String type) {
         this.type = type;
+    }
+    
+        public String getMapSymble() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+    
+        public boolean getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        this.blocked = blocked;
     }
 
     @Override
