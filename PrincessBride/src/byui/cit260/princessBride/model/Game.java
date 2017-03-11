@@ -55,7 +55,6 @@ public class Game implements Serializable{
         this.inventory = inventory;
     }
     
-    
         public BackPack getBackPack() {
         return backPack;
     }
@@ -109,7 +108,8 @@ public class Game implements Serializable{
     }*/
 
     public void setMap(Map map) {
-        System.out.println("\n*** setMap() function called ***");
+        this.map = map;
+        //System.out.println("\n*** setMap() function called ***");
     }
 
     //public void setInventory(InventoryItem[] inventoryList) {
@@ -121,6 +121,6 @@ public class Game implements Serializable{
     //}
 
     public Map getMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return map;
     }
 }

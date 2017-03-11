@@ -6,17 +6,23 @@
 package buyi.cit260.princessBride.control;
 
 import byui.cit260.princessBride.model.Map;
+import static byui.cit260.princessBride.model.Map.createScenes;
+import byui.cit260.princessBride.model.Scene;
 
 /**
  *
  * @author Lai
  */
 public class MapControl {
-    public static Map createMap() throws MapControlException {
+    public static Map createMap() {
         // create the map
-        Map map = null;
+        Map map = new Map(10, 10);
         
-        System.out.println("\n *** createMap() called *** ");
+        //create the scenes for the game
+        Scene[] scenes = createScenes();
+        
+        //assign scenes to locations
+        GameControl.assignScenesToLocations(map, scenes);
         
         return map;
     }

@@ -15,6 +15,7 @@ public class Map implements Serializable {
 
     private int rowCount;
     private int columnCount;
+    private Location currentLocation;
     private Location[][] locations;
 
     public Map() {     
@@ -65,6 +66,15 @@ public class Map implements Serializable {
         this.columnCount = columnCount;
     }
 
+    
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+    
     public Location[][] getLocations() {
         return locations;
     }
@@ -190,7 +200,4 @@ private static void assignScenesToLocations(Map map, Scene[] scenes) {
         }
         return true;
     }
-    
-    
-    
 }

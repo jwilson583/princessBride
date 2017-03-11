@@ -87,6 +87,45 @@ public class GameMenuView extends View{
     }*/
     
     private void displayMap() {
+        
+        String leftIndicator;
+        String rightIndicator;
+
+        Game game = InitialPlayer.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+
+        System.out.println("               The LAND OF FLORIN");
+        System.out.println("\n");
+        System.out.print("  |");
+        for (int column = 0; column < locations[0].length; column++) {
+            System.out.print("  " + column + " |"); // print col numbers to side of map
+        }
+        System.out.println();
+        for (int row = 0; row < locations.length; row++) {
+            System.out.print(row + " "); // print row numbers to side of map
+            for (int column = 0; column < locations[row].length; column++) {
+                leftIndicator = " ";
+                rightIndicator = " ";
+                if (locations[row][column] == map.getCurrentLocation()) {
+                    leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "*"; // same as above
+                } else if (locations[row][column].isVisited()) {
+                    leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "<"; // same as above
+                }
+                System.out.print("|"); // start map with a |
+                if (locations[row][column].getScene() == null) {
+                    System.out.print(leftIndicator + "??" + rightIndicator);
+                } else {
+                    System.out.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+                }
+            }
+            System.out.println("|");
+
+        }
+
+    
 
     }
 
@@ -98,7 +137,7 @@ public class GameMenuView extends View{
         
         System.out.println("\n      LIST OF INVENTORY ITEMS");
         line = new StringBuilder("                                  ");
-        //line.insert(0, "DESCRIPTION");
+        line.insert(0, "DESCRIPTION");
         line.insert(20, "Point Required");
         line.insert(30, "Quantity In Stock");
         System.out.println(line.toString());
@@ -106,13 +145,14 @@ public class GameMenuView extends View{
         // for each inventory item
         for (InventoryItem item: inventory) {
             line = new StringBuilder("                                  ");
-            //line.insert(0, item.getDescription());
-            line.insert(23, item.getPointRequired());
+            line.insert(0, item.getDescription());
+            line.insert(20, item.getPointRequired());
             line.insert(33, item.getQuantityInStock());
             
             // display the line
             System.out.println(line.toString());
         }
+        
     }
     private void viewActor() {
         System.out.println("\n*** viewActor() function called ***");

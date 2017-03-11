@@ -103,7 +103,10 @@ public class Scene implements Serializable{
     public String toString() {
         return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", type=" + type + '}';
     }
+
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
             
- 
     
 }

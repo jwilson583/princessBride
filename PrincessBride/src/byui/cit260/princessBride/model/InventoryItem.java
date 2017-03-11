@@ -18,6 +18,7 @@ public class InventoryItem implements Serializable{
     // class instance variables
     private String name;
     private String type;
+    private String description;
     private double pointRequired;
     private double quantityInStock;
     private double rowCount;
@@ -35,6 +36,14 @@ public class InventoryItem implements Serializable{
         this.name = name;
     }
 
+    public String getDescription() {
+        return name;
+    }
+
+    public void setDescription(String description) {
+        this.name = name;
+    }
+    
     public String getType() {
         return type;
     }
@@ -121,10 +130,6 @@ public class InventoryItem implements Serializable{
     @Override
     public String toString() {
         return "Item{" + "name=" + name + ", type=" + type + ", pointRequired=" + pointRequired + ", rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
-    }
-
-    public void setDescription(String round_and_full_of_surprises) {
-        System.out.println("\n*** setDescription() function called ***");
     }
 
     public void setAmmount(int i) {
