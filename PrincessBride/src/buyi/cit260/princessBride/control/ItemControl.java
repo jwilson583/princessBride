@@ -5,6 +5,7 @@
  */
 package buyi.cit260.princessBride.control;
 
+import buyi.cit260.princessBride.control.ItemControl.ItemEnum;
 import byui.cit260.princessBride.model.InventoryItem;
 
 /**
@@ -12,6 +13,7 @@ import byui.cit260.princessBride.model.InventoryItem;
  * @author Ben
  */
 public class ItemControl {
+
     
  static InventoryItem[] createInventory() {
         
@@ -21,19 +23,19 @@ public class ItemControl {
         InventoryItem egg = new InventoryItem();
         egg.setName("Egg");
         egg.setDescription("Round and full of surprises");
-        egg.setAmmount(0);
+        egg.setAmmount(9);
         inventory[ItemEnum.egg.ordinal()] = egg;
         
         InventoryItem MiraclePotion = new InventoryItem();
         MiraclePotion.setName("Miracle Potion");
         MiraclePotion.setDescription("aka its kind of a big deal potion");
-        MiraclePotion.setAmmount(0);
+        MiraclePotion.setAmmount(4);
         inventory[ItemEnum.MiraclePotion.ordinal()] = MiraclePotion;
         
         InventoryItem trueLove = new InventoryItem();
         trueLove.setName("True Love");
         trueLove.setDescription("Evertything you've ever wanted in a pill");
-        trueLove.setAmmount(0);
+        trueLove.setAmmount(1);
         inventory[ItemEnum.trueLove.ordinal()] = trueLove;
         
         return inventory;
@@ -41,6 +43,5 @@ public class ItemControl {
     
             public enum ItemEnum {
         egg, MiraclePotion, trueLove;
-    }
-    
+    }   
 }

@@ -5,6 +5,8 @@
  */
 package buyi.cit260.princessBride.control;
 
+import byui.cit260.princessBride.model.InventoryItem;
+
 /**
  *
  * @author Ben Lacusta
@@ -42,5 +44,21 @@ public class InventoryControl {
     
        return totalVolume;
         }
+    
+    
+    public static void sortByDescription(InventoryItem[] items) {
+
+        InventoryItem tempItem;
+        for (int i = 0; i < items.length-1; i++) {
+            for (int j = 0; j < items.length-1-i; j++) {
+                if (items[j].getDescription().compareToIgnoreCase(items[j + 1].getDescription()) > 0) {
+                    tempItem = items[j];
+                    items[j] = items[j+1];
+                    items[j+1] = tempItem;
+                }
+            }
+        }
+
+    }
             }
             

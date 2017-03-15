@@ -135,5 +135,9 @@ public class InventoryItem implements Serializable{
     public void setAmmount(int i) {
         System.out.println("\n*** setAmmount() function called ***");
     }
+
+    public Object getRequiredAmount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

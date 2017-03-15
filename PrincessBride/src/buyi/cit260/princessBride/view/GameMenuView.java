@@ -11,7 +11,7 @@ import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-import java.util.Scanner;
+import java.io.PrintWriter;
 
 /**
  * 
@@ -49,7 +49,7 @@ public class GameMenuView extends View{
                 this.displayMap();
                 break;
             case "I": // view list of items in inventory
-                this.viewInventory();
+                this.displayInventory();
                 break;
             case "P": // View list of people (actors)
                 this.viewActor();
@@ -104,21 +104,21 @@ public class GameMenuView extends View{
         System.out.println();
         for (int row = 0; row < locations.length; row++) {
             System.out.print(row + " "); // print row numbers to side of map
-            for (int column = 0; column < locations[row].length; column++) {
+            for (Location location : locations[row]) {
                 leftIndicator = " ";
                 rightIndicator = " ";
-                if (locations[row][column] == map.getCurrentLocation()) {
+                if (location == map.getCurrentLocation()) {
                     leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
                     rightIndicator = "*"; // same as above
-                } else if (locations[row][column].isVisited()) {
+                } else if (location.isVisited()) {
                     leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                     rightIndicator = "<"; // same as above
                 }
                 System.out.print("|"); // start map with a |
-                if (locations[row][column].getScene() == null) {
+                if (location.getScene() == null) {
                     System.out.print(leftIndicator + "??" + rightIndicator);
                 } else {
-                    System.out.print(leftIndicator + locations[row][column].getScene().getMapSymbol() + rightIndicator);
+                    System.out.print(leftIndicator + location.getScene().getMapSymbol() + rightIndicator);
                 }
             }
             System.out.println("|");
@@ -128,32 +128,33 @@ public class GameMenuView extends View{
     
 
     }
-
-    private void viewInventory() {
-        StringBuilder line;
+ private void displayInventory() {
+        this.viewInventory(InitialPlayer.getOutFile());
+ }
+ 
+   private void viewInventory(PrintWriter out) {
+        // get the sorted list of inventory items for the current game
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
         
-        Game game = InitialPlayer.getCurrentGame();
-        InventoryItem[] inventory = game.getInventory();
-        
-        System.out.println("\n      LIST OF INVENTORY ITEMS");
-        line = new StringBuilder("                                  ");
-        line.insert(0, "DESCRIPTION");
-        line.insert(20, "Point Required");
-        line.insert(30, "Quantity In Stock");
-        System.out.println(line.toString());
+        out.println("\n        LIST OF INVENTORY ITEMS");
+        StringBuilder line = new StringBuilder("                                                          ");
+        line.insert(0, "DESCRIPTION"); 
+        line.insert(20, "REQUIRED");
+        line.insert(30, "IN STOCK");
+        out.println(line.toString());
         
         // for each inventory item
-        for (InventoryItem item: inventory) {
-            line = new StringBuilder("                                  ");
-            line.insert(0, item.getDescription());
-            line.insert(20, item.getPointRequired());
-            line.insert(33, item.getQuantityInStock());
+        for (InventoryItem inventoryItem : inventory) {
+            line = new StringBuilder("                                                          ");
+            line.insert(0, inventoryItem.getDescription());
+            line.insert(23, inventoryItem.getRequiredAmount());
+            line.insert(33, inventoryItem.getQuantityInStock());
             
-            // display the line
-            System.out.println(line.toString());
-        }
-        
+            // DISPLAY the description, the required amount and amount in stock
+            out.println(line.toString());
+        }   
     }
+
     private void viewActor() {
         System.out.println("\n*** viewActor() function called ***");
     }
