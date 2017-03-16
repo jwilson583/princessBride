@@ -6,6 +6,7 @@
 package buyi.cit260.princessBride.control;
 
 import InitialPlayer.InitialPlayer;
+import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.Item;
@@ -20,6 +21,7 @@ import java.util.Arrays;
  *
  * @author Lai
  */
+
 public class GameControl {
       
     public static Player createPlayer(String name) {
@@ -163,67 +165,117 @@ public class GameControl {
         InventoryItem[] inventory = new InventoryItem[12];
         
         InventoryItem trueLove = new InventoryItem();
-        trueLove.setDescription("TrueLove");
+        trueLove.setName("True Love");
+        trueLove.setDescription("Evertything you've ever wanted in a pill");
+        trueLove.setType("health");
         trueLove.setQuantityInStock(0);
         trueLove.setPointRequired(0);
+        trueLove.setPowerPoint(100);
+        trueLove.setRowCount(0);
+        trueLove.setColumnCount(0);
         inventory[Item.trueLove.ordinal()] = trueLove;
         
         InventoryItem sword = new InventoryItem();
-        sword.setDescription("Sword");
-        sword.setQuantityInStock(0);
-        sword.setPointRequired(0);
+        sword.setName("Sword");
+        sword.setDescription("    ");
+        sword.setType("health");
+        sword.setQuantityInStock(10);
+        sword.setPointRequired(50);
+        sword.setPowerPoint(50);
+        sword.setRowCount(0);
+        sword.setColumnCount(0);
         inventory[Item.sword.ordinal()] = sword;
         
         InventoryItem rock = new InventoryItem();
-        rock.setDescription("Rock");
-        rock.setQuantityInStock(0);
-        rock.setPointRequired(0);
+        rock.setName("Rock");
+        rock.setDescription("    ");
+        rock.setType("attack");
+        rock.setQuantityInStock(20);
+        rock.setPointRequired(4);
+        rock.setPowerPoint(30);
+        rock.setRowCount(0);
+        rock.setColumnCount(0);
         inventory[Item.rock.ordinal()] = rock;
         
         InventoryItem dagger = new InventoryItem();
-        dagger.setDescription("Dagger");
-        dagger.setQuantityInStock(0);
-        dagger.setPointRequired(0);
+        dagger.setName("Dagger");
+        dagger.setDescription("     ");
+        dagger.setType("attack");
+        dagger.setQuantityInStock(2);
+        dagger.setPointRequired(20);
+        dagger.setPowerPoint(10);
+        dagger.setRowCount(4);
+        dagger.setColumnCount(2);
         inventory[Item.dagger.ordinal()] = dagger;
         
         InventoryItem iocanePowder = new InventoryItem();
-        iocanePowder.setDescription("IocanePowder");
-        iocanePowder.setQuantityInStock(0);
-        iocanePowder.setPointRequired(0);
+        iocanePowder.setName("IocanePowder");
+        iocanePowder.setDescription("   ");
+        iocanePowder.setType("attack");
+        iocanePowder.setQuantityInStock(2);
+        iocanePowder.setPointRequired(10);
+        iocanePowder.setPowerPoint(100);
+        iocanePowder.setRowCount(1);
+        iocanePowder.setColumnCount(2);
         inventory[Item.iocanePowder.ordinal()] = iocanePowder;
         
         InventoryItem moneyBag = new InventoryItem();
-        moneyBag.setDescription("MoneyBag");
-        moneyBag.setQuantityInStock(0);
-        moneyBag.setPointRequired(0);
+        moneyBag.setName("MoneyBag");
+        moneyBag.setDescription("   ");
+        moneyBag.setType("attack");
+        moneyBag.setQuantityInStock(10);
+        moneyBag.setPointRequired(20);
+        moneyBag.setPowerPoint(0);
+        moneyBag.setColumnCount(3);
         inventory[Item.moneyBag.ordinal()] = moneyBag;
         
         InventoryItem miraclePotions = new InventoryItem();
-        miraclePotions.setDescription("MiraclePotions");
-        miraclePotions.setQuantityInStock(0);
-        miraclePotions.setPointRequired(0);
+        miraclePotions.setName("Miracle Potion");
+        miraclePotions.setDescription("aka its kind of a big deal potion");
+        miraclePotions.setType("health");
+        miraclePotions.setQuantityInStock(10);
+        miraclePotions.setPointRequired(15);
+        miraclePotions.setPowerPoint(100);
+        miraclePotions.setRowCount(2);
+        miraclePotions.setColumnCount(8);
         inventory[Item.miraclePotions.ordinal()] = miraclePotions;
         
         InventoryItem map = new InventoryItem();
-        map.setDescription("Map");
-        map.setQuantityInStock(0);
-        map.setPointRequired(0);
+        map.setName("Map");
+        map.setDescription("Map of Florin");
+        map.setType("attack");
+        map.setQuantityInStock(50);
+        map.setPointRequired(10);
+        map.setPowerPoint(0);
+        map.setRowCount(0);
+        map.setColumnCount(2);
         inventory[Item.map.ordinal()] = map;
         
         InventoryItem holocaustCloak = new InventoryItem();
-        holocaustCloak.setDescription("HolocaustCloak");
-        holocaustCloak.setQuantityInStock(0);
-        holocaustCloak.setPointRequired(0);
+        holocaustCloak.setName("HolocaustCloak");
+        holocaustCloak.setDescription("   ");
+        holocaustCloak.setType("attack");
+        holocaustCloak.setQuantityInStock(8);
+        holocaustCloak.setPointRequired(50);
+        holocaustCloak.setPowerPoint(40);
+        holocaustCloak.setRowCount(4);
+        holocaustCloak.setColumnCount(5);
         inventory[Item.holocaustCloak.ordinal()] = holocaustCloak;
         
         InventoryItem egg = new InventoryItem();
-        egg.setDescription("Egg");
-        egg.setQuantityInStock(0);
-        egg.setPointRequired(0);
+        egg.setName("Egg");
+        egg.setDescription("Round and full of surprises");
+        egg.setType("health");
+        egg.setQuantityInStock(100);
+        egg.setPointRequired(10);
+        egg.setPowerPoint(10);
+        egg.setRowCount(8);
+        egg.setColumnCount(3);
         inventory[Item.egg.ordinal()] = egg;
         
         return inventory;
         }
+
     
     public static InventoryItem[] getSortedInventoryList() {
         
@@ -257,124 +309,75 @@ public class GameControl {
         static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
-// row 1
-        locations[9][5].setScene(scenes[SceneType.florinFarm.ordinal()]);
-        locations[0][1].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
-        locations[0][2].setScene(scenes[SceneType.guilderFrontier.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        /*locations[0][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[0][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[0][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[0][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[0][9].setScene(scenes[SceneType.greenland.ordinal()]);*/
-
-// row 2
-        locations[5][6].setScene(scenes[SceneType.thievesForest.ordinal()]);
-        locations[7][7].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
-        locations[8][2].setScene(scenes[SceneType.florinCastle.ordinal()]);
-        /*locations[1][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[1][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[1][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[1][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[1][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[1][9].setScene(scenes[SceneType.greenland.ordinal()]);
-
-// row 3
-        locations[2][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[2][9].setScene(scenes[SceneType.greenland.ordinal()]);
-
-// row 4
-        locations[3][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[3][9].setScene(scenes[SceneType.greenland.ordinal()]);
-
-// row 5
-        locations[4][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[4][9].setScene(scenes[SceneType.greenland.ordinal()]);
-        
-// row 6
-        locations[5][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[5][8].setScene(scenes[SceneType.greenland.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.florinFarm.ordinal()]);
+        locations[0][3].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
+        locations[1][6].setScene(scenes[SceneType.guilderFrontier.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
         locations[5][9].setScene(scenes[SceneType.greenland.ordinal()]);
+        locations[7][1].setScene(scenes[SceneType.thievesForest.ordinal()]);
+        locations[8][6].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
+        locations[9][8].setScene(scenes[SceneType.florinCastle.ordinal()]);
+
+        }
         
-// row 7
-        locations[6][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][9].setScene(scenes[SceneType.greenland.ordinal()]);
+    public static CollectedItem[] createCollectedList() {
+	
+        CollectedItem[] collect = new CollectedItem[4];
         
+        CollectedItem inigoMontoya = new CollectedItem();
+        inigoMontoya.setActorName("Inigo Montoya");
+        inigoMontoya.setTrueLove(0);
+        inigoMontoya.setSword(1);
+        inigoMontoya.setRock(0);
+        inigoMontoya.setDagger(0);
+        inigoMontoya.setIocanePowder(0);
+        inigoMontoya.setMoneyBag(0);
+        inigoMontoya.setMiraclePotions(0);
+	inigoMontoya.setMap(0);
+	inigoMontoya.setHolocaustCloak(0);
+	inigoMontoya.setEgg(0);
+        collect[Actor.inigoMontoya.ordinal()] = inigoMontoya;
+
+	CollectedItem fezzik = new CollectedItem();
+        fezzik.setTrueLove(0);
+        fezzik.setSword(0);
+        fezzik.setRock(10);
+        fezzik.setDagger(0);
+        fezzik.setIocanePowder(0);
+        fezzik.setMoneyBag(0);
+        fezzik.setMiraclePotions(0);
+	fezzik.setMap(0);
+	fezzik.setHolocaustCloak(0);
+	fezzik.setEgg(100);
+        collect[Actor.fezzik.ordinal()] = fezzik;
+
+	CollectedItem miracleMax = new CollectedItem();
+        miracleMax.setTrueLove(0);
+        miracleMax.setSword(0);
+        miracleMax.setRock(0);
+        miracleMax.setDagger(0);
+        miracleMax.setIocanePowder(0);
+        miracleMax.setMoneyBag(0);
+        miracleMax.setMiraclePotions(10);
+	miracleMax.setMap(0);
+	miracleMax.setHolocaustCloak(0);
+	miracleMax.setEgg(50);
+        collect[Actor.miracleMax.ordinal()] = miracleMax;
+
+	CollectedItem vizzini = new CollectedItem();
+        vizzini.setTrueLove(0);
+        vizzini.setSword(1);
+        vizzini.setRock(0);
+        vizzini.setDagger(0);
+        vizzini.setIocanePowder(0);
+        vizzini.setMoneyBag(0);
+        vizzini.setMiraclePotions(0);
+	vizzini.setMap(1);
+	vizzini.setHolocaustCloak(1);
+	vizzini.setEgg(40);
+        collect[Actor.vizzini.ordinal()] = vizzini;
         
-// row 8
-        locations[7][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][9].setScene(scenes[SceneType.greenland.ordinal()]);
+        return collect;
         
-// row 9
-        locations[8][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[8][9].setScene(scenes[SceneType.greenland.ordinal()]);
-        
-// row 10
-        locations[9][0].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][1].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][2].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][3].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][4].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][5].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][6].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[9][8].setScene(scenes[SceneType.greenland.ordinal()]);
-        //locations[9][9].setScene(scenes[SceneType.greenland.ordinal()]);*/
     }
-    }
+}

@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.model;
 
+import buyi.cit260.princessBride.control.CollectedItem;
 import java.io.Serializable;
 
 /**
@@ -19,6 +20,7 @@ public class Game implements Serializable{
     private InventoryItem[] inventory;
     private Map map;
     private BackPack backPack;
+    private CollectedItem[] collect;
 
     public Game() {
     }
@@ -123,4 +125,11 @@ public class Game implements Serializable{
     public Map getMap() {
         return map;
     }
+
+
+    public CollectedItem[] getCollect() {
+        return collect;
+    }
+
+
 }

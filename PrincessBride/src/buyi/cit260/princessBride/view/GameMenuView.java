@@ -6,6 +6,7 @@
 package buyi.cit260.princessBride.view;
 
 import InitialPlayer.InitialPlayer;
+import buyi.cit260.princessBride.control.CollectedItem;
 import buyi.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
@@ -49,10 +50,10 @@ public class GameMenuView extends View{
                 this.displayMap();
                 break;
             case "I": // view list of items in inventory
-                this.displayInventory();
+                this.viewInventory();
                 break;
             case "P": // View list of people (actors)
-                this.viewActor();
+                this.viewActorHealth();
                 break;
             case "S": // travel to Miracle Max Store // will move to Map sub-menu
                 this.MiracleMaxStoreView();
@@ -100,14 +101,14 @@ private void displayMap() {
         Location[][] locations = map.getLocations(); // retreive the locations from map
 
         System.out.println("                 The LAND OF FLORIN");
-        //System.out.println();
-        System.out.println("   ");
-        for (int column = 1; column < (locations[0].length + 1); column++) {
+        //System.out.println("\n");
+        System.out.print("\n  ");
+        for (int column = 0; column < locations[0].length; column++) {
             System.out.print("  " + column + "  "); // print col numbers to side of map
         }
         System.out.println();
-        System.out.print("  ");
-        for (int i = 1; i < 52; i++) {
+        System.out.print("   ");
+        for (int i = 1; i < 50; i++) {
             System.out.print("-");
             }
         System.out.println();
@@ -134,44 +135,67 @@ private void displayMap() {
                 }
             }
             System.out.println("|");
-            System.out.print("  ");
-                for (int i = 1; i < 52; i++) {
+            System.out.print("   ");
+                for (int i = 1; i < 50; i++) {
                     System.out.print("-");
                     }
             System.out.println();
         }
     }
 
- private void displayInventory() {
-        this.viewInventory(InitialPlayer.getOutFile());
- }
+    private void viewInventory() {
+        StringBuilder line;
+        
+        Game game = InitialPlayer.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+        
+        System.out.println("              LIST OF INVENTORY ITEMS");
+        System.out.println();
+        line = new StringBuilder("                                  ");
+        line.insert(0, "Name");
+        line.insert(20, "Point Required");
+        line.insert(40, "Quantity In Stock");
+        System.out.println(line.toString());
+        
+        
+        for (InventoryItem item: inventory) {
+            line = new StringBuilder("                                  ");
+            line.insert(0, item.getName());
+            line.insert(20, item.getPointRequired());
+            line.insert(40, item.getQuantityInStock());
  
-   private void viewInventory(PrintWriter out) {
-        // get the sorted list of inventory items for the current game
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        
-        out.println("\n        LIST OF INVENTORY ITEMS");
-        StringBuilder line = new StringBuilder("                                                          ");
-        line.insert(0, "DESCRIPTION"); 
-        line.insert(20, "REQUIRED");
-        line.insert(30, "IN STOCK");
-        out.println(line.toString());
-        
-        // for each inventory item
-        for (InventoryItem inventoryItem : inventory) {
-            line = new StringBuilder("                                                          ");
-            line.insert(0, inventoryItem.getDescription());
-            line.insert(23, inventoryItem.getRequiredAmount());
-            line.insert(33, inventoryItem.getQuantityInStock());
-            
-            // DISPLAY the description, the required amount and amount in stock
-            out.println(line.toString());
-        }   
+            // display the line
+            System.out.println(line.toString());
+        }
     }
 
-    private void viewActor() {
-        System.out.println("\n*** viewActor() function called ***");
+    private void viewActorHealth() {
+        
+        StringBuilder line;
+        
+        Game game = InitialPlayer.getCurrentGame();
+        CollectedItem[] collect = game.getCollect();
+        
+        System.out.println("              LIST OF ACTOR COLLECTION");
+        System.out.println();
+        line = new StringBuilder("                                  ");
+        line.insert(0, "Name");
+        line.insert(20, "True Love");
+        line.insert(40, "Iocane Power");
+        System.out.println(line.toString());
+        
+        
+        for (CollectedItem actor: collect) {
+            line = new StringBuilder("                                  ");
+            line.insert(0, actor.getActorName());
+            line.insert(20, actor.getTrueLove());
+            line.insert(40, actor.getIocanePowder());
+ 
+            // display the line
+            System.out.println(line.toString());
+        }
     }
+        
     private void MiracleMaxStoreView() {
         MiracleMaxStoreView MiracleMaxStore = new MiracleMaxStoreView();
         MiracleMaxStore.display();

@@ -12,14 +12,17 @@ import java.io.Serializable;
  *
  * @author Ben
  */
-public enum Actor implements Serializable{
+public enum Actor /*implements Serializable*/ {
     
-InigoMontoya ("A spaniard seeking to avenge his father"),
+/*InigoMontoya ("A spaniard seeking to avenge his father"),
 Fezzik ("A large Hearted Giant that only wants to help his friends"),
 MiracleMax("A miracle worker fired by the Prince"),
-Vizzini("A know it all that doesn't know the definition of inconceivable");
+Vizzini("A know it all that doesn't know the definition of inconceivable"), */
+    vizzini, fezzik, miracleMax, inigoMontoya;
+
+}
     
-// class instance variables
+/*// class instance variables
    private final String description;
    private final Point coordinates;
    
@@ -35,4 +38,4 @@ Actor(String description) {
   return coordinates;
     }
     
-}
+}*/

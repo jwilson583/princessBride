@@ -23,6 +23,7 @@ public class InventoryItem implements Serializable{
     private double quantityInStock;
     private double rowCount;
     private double columnCount;
+    private Object requiredAmount;
 
 
     public InventoryItem() {
@@ -41,7 +42,7 @@ public class InventoryItem implements Serializable{
     }
 
     public void setDescription(String description) {
-        this.name = name;
+        this.description = description;
     }
     
     public String getType() {
@@ -137,7 +138,12 @@ public class InventoryItem implements Serializable{
     }
 
     public Object getRequiredAmount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n*** getRequiredAmount() function called ***");
+        return requiredAmount;
+    }
+
+    public void setPowerPoint(int i) {
+        System.out.println("\n*** setPowerPoint() function called ***");
     }
     
 }
