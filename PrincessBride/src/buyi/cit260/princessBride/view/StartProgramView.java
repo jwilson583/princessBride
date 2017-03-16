@@ -7,7 +7,10 @@ package buyi.cit260.princessBride.view;
 
 import buyi.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.model.Player;
+import exceptions.GameControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,23 +50,28 @@ public class StartProgramView extends View {
 
     public boolean doAction(String value) {
         
-        if ((value.length() < 2) || (value.length()) > 20) {
-            System.out.println("\nInvalid player's name: "
-                             + "The name must be greater than 1 and less than 20 characters in length");
-            return false;
+        try {
+            if ((value.length() < 2) || (value.length()) > 20) {
+                System.out.println("\nInvalid player's name: "
+                        + "The name must be greater than 1 and less than 20 characters in length");
+                return false;
+            }
+            
+            // call createPlayer() control function
+            Player player = GameControl.createPlayer(value);
+            
+            if (player == null) { // if unsuccessful
+                System.out.println("\nError creating the player.");
+                return false;
+            }
+            // display next view
+            this.displayNextView(player);
+            
+            return true; // success!
+        } catch (GameControlException me) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, me);
         }
-
-        // call createPlayer() control function
-        Player player = GameControl.createPlayer(value);
-    
-        if (player == null) { // if unsuccessful
-            System.out.println("\nError creating the player.");
-            return false;
-        }
-        // display next view
-        this.displayNextView(player);
-        
-        return true; // success!
+        return false;
     }
 
     private void displayNextView(Player player) {

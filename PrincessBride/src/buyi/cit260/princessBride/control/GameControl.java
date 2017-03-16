@@ -15,6 +15,7 @@ import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.SceneType;
+import exceptions.GameControlException;
 import java.util.Arrays;
 
 /**
@@ -24,10 +25,11 @@ import java.util.Arrays;
 
 public class GameControl {
       
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) throws GameControlException {
         
         if (name == null) {
-            return null;
+            throw new GameControlException("Name can not be nothing"
+                                            +"Please enter a name");
         }
         
         Player player = new Player();
@@ -71,9 +73,10 @@ public class GameControl {
     String [] usedName = {"Game2", "Used Name", "Old Name"};
     
     
-    public String getnewGame(String newName) {
+    public String getnewGame(String newName) throws GameControlException {
         if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 31)||(Arrays.asList(usedName).contains(newName))) {
-        return "Error";
+         throw new GameControlException("Name can not be nothing"
+                                            +"Please enter a name");
         }
         
         String newGame = newName;
@@ -82,9 +85,10 @@ public class GameControl {
     }    
     
     
-    public String getnewPlayer(String newName) {
+    public String getnewPlayer(String newName) throws GameControlException {
         if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 21)||(Arrays.asList(usedName).contains(newName))) {
-        return "Error";
+         throw new GameControlException("Name can not be nothing"
+                                            +"Please enter a name");
         }
         
         String newPlayer = newName;

@@ -7,6 +7,8 @@ package InitialPlayer;
 
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
+import byui.cit260.princessBride.model.InventoryItem;
+import byui.cit260.princessBride.model.Map;
 import java.io.PrintWriter;
 
 /**
@@ -38,11 +40,12 @@ public class InitialPlayer {
         }
 
     public static Object getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static PrintWriter getOutFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.;
+        
     }
     
 }
