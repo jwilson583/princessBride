@@ -6,6 +6,7 @@
 package buyi.cit260.princessBride.control;
 
 import InitialPlayer.InitialPlayer;
+import byui.cit260.princessBride.exceptions.GameControlException;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
@@ -15,7 +16,6 @@ import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.SceneType;
-import byui.cit260.princessBride.exceptions.GameControlException;
 import java.util.Arrays;
 
 /**
@@ -28,8 +28,7 @@ public class GameControl {
     public static Player createPlayer(String name) throws GameControlException {
         
         if (name == null) {
-            throw new GameControlException("Name can not be nothing"
-                                            +"Please enter a name");
+            throw new GameControlException("You cant do that, try again 1");
         }
         
         Player player = new Player();
@@ -75,8 +74,7 @@ public class GameControl {
     
     public String getnewGame(String newName) throws GameControlException {
         if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 31)||(Arrays.asList(usedName).contains(newName))) {
-         throw new GameControlException("Name can not be nothing"
-                                            +"Please enter a name");
+        throw new GameControlException("You cant do that, try again 2");
         }
         
         String newGame = newName;
@@ -87,8 +85,7 @@ public class GameControl {
     
     public String getnewPlayer(String newName) throws GameControlException {
         if ((newName.length() == 0)||(newName.length() < 0)||(newName.length() > 21)||(Arrays.asList(usedName).contains(newName))) {
-         throw new GameControlException("Name can not be nothing"
-                                            +"Please enter a name");
+        throw new GameControlException("You cant do that, try again 3");
         }
         
         String newPlayer = newName;
@@ -96,26 +93,26 @@ public class GameControl {
         return newPlayer;
     }   
     
-    public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttack) {
+    public double calcStrength(int numMiraclePotion, int travelTime, int runTime, int numDodge, int numAttack) throws GameControlException{
                     
         if (numMiraclePotion < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 4");
         }
 
         if (travelTime < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 5");
         }
         
         if (runTime < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 6");
         }
         
         if (numDodge < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 7");
         }
         
         if (numAttack < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 8");
         }
         
         double strength = startStrengthPt+miraclePotionPt*numMiraclePotion-travelPt*travelTime-runPt*runTime-dodgePt*numDodge-attackPt*numAttack;
@@ -123,26 +120,26 @@ public class GameControl {
         return strength;
     }
     
-    public double calcAttack(int numSword, int numRock, int numDagger, int numIocanePowder, int gameLevel) {
+    public double calcAttack(int numSword, int numRock, int numDagger, int numIocanePowder, int gameLevel) throws GameControlException {
         
         if ((gameLevel < 0) || (gameLevel > 3)) {
-            return -1;
+           throw new GameControlException("You cant do that, try again 9");
         }
             
         if (numSword < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 10");
         }
         
         if (numRock < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 11");
         }
         
         if (numDagger < 0) {
-            return -1;
+           throw new GameControlException("You cant do that, try again 12");
         }
         
         if (numIocanePowder < 0) {
-            return -1;
+            throw new GameControlException("You cant do that, try again 13");
         }
         
         double attack = (((swordPt*numSword)+(rockPt*numRock)+(daggerPt*numDagger))/(Math.pow(gameIndx, gameLevel)))+(iocanPowderPt*numIocanePowder);

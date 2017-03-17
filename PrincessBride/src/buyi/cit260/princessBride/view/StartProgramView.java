@@ -68,8 +68,8 @@ public class StartProgramView extends View {
             this.displayNextView(player);
             
             return true; // success!
-        } catch (GameControlException me) {
-            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, me);
+        } catch (GameControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
