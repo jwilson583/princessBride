@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exceptions;
+package byui.cit260.princessBride.exceptions;
 
 /**
  *
  * @author Jack Wilson
  */
-public class GameControlException extends Exception{
+public class GameControlException extends Exception {
 
     public GameControlException() {
     }

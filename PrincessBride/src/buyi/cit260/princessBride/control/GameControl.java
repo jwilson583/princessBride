@@ -15,7 +15,7 @@ import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.SceneType;
-import exceptions.GameControlException;
+import byui.cit260.princessBride.exceptions.GameControlException;
 import java.util.Arrays;
 
 /**

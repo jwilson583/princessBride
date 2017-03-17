@@ -5,6 +5,7 @@
  */
 package buyi.cit260.princessBride.control;
 
+import byui.cit260.princessBride.exceptions.GameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,9 +21,10 @@ public class GameControlTest {
     
     /**
      * Test of getnewGame method, of class GameControl.
+     * @throws byui.cit260.princessBride.exceptions.GameControlException
      */
     @Test
-    public void testGetnewGame() {
+    public void testGetnewGame() throws GameControlException {
         System.out.println("getnewGame");
                 
         /*******************************
@@ -153,7 +155,7 @@ public class GameControlTest {
      * Test of getnewPlayer method, of class GameControl.
      */
     @Test
-    public void testGetnewPlayer() {
+    public void testGetnewPlayer() throws GameControlException {
         System.out.println("getnewPlayer");
                 
         /*******************************

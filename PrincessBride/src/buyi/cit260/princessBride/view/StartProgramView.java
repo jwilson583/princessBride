@@ -7,7 +7,7 @@ package buyi.cit260.princessBride.view;
 
 import buyi.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.model.Player;
-import exceptions.GameControlException;
+import byui.cit260.princessBride.exceptions.GameControlException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
