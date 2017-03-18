@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.model;
 
 import buyi.cit260.princessBride.control.CollectedItem;
+import java.awt.Point;
 import java.io.Serializable;
 
 /**
@@ -129,6 +130,10 @@ public class Game implements Serializable{
 
     public CollectedItem[] getCollect() {
         return collect;
+    }
+
+    public Point[] getActorsLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

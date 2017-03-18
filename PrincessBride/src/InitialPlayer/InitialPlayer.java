@@ -5,10 +5,9 @@
  */
 package InitialPlayer;
 
+import buyi.cit260.princessBride.view.StartProgramView;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
-import byui.cit260.princessBride.model.InventoryItem;
-import byui.cit260.princessBride.model.Map;
 import java.io.PrintWriter;
 
 /**
@@ -21,6 +20,16 @@ public class InitialPlayer {
     private static Player player = null;
     
     public static void main(String[] args) {
+        StartProgramView startProgramView = new StartProgramView();
+        try {
+            startProgramView.display();
+      
+        } catch (Throwable te) {
+                System.out.println(te.getMessage());
+                startProgramView.display();
+        }
+        
+        
     }
         public static Game getCurrentGame() {
             return currentGame;
