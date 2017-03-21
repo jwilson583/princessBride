@@ -38,7 +38,7 @@ public class InventoryItem implements Serializable{
     }
 
     public String getDescription() {
-        return name;
+        return description;
     }
 
     public void setDescription(String description) {

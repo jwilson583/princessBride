@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.princessBride.control;
+package byui.cit260.princessBride.control;
 
-import byui.cit260.princessBride.model.InventoryItem;
+//import byui.cit260.princessBride.model.InventoryItem;
 
 /**
  *
@@ -46,7 +46,7 @@ public class InventoryControl {
         }
     
     
-    public static void sortByDescription(InventoryItem[] items) {
+/*    public static void sortByDescription(InventoryItem[] items) {
 
         InventoryItem tempItem;
         for (int i = 0; i < items.length-1; i++) {
@@ -59,6 +59,6 @@ public class InventoryControl {
             }
         }
 
-    }
-            }
+    }*/
+}
             

@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.princessBride.view;
+package byui.cit260.princessBride.view;
 
 import InitialPlayer.InitialPlayer;
-import buyi.cit260.princessBride.control.CollectedItem;
-import buyi.cit260.princessBride.control.GameControl;
+//import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
+import byui.cit260.princessBride.model.CollectedItem;
+//import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
+import java.util.Arrays;
 
 /**
  * 
@@ -32,7 +34,8 @@ public class GameMenuView extends View{
                   + "\n  I - View list of items in inventory"
                   + "\n  S - Miracle Max Store" //will move to Map sub-menu
                   + "\n  B - Dispaly Backpack"  //will move to Map sub-menu
-                  + "\n  P - View List of People (Actors)"   
+                  + "\n  P - View List of People (Actors) and "
+                  + "\n      the highest health point"
                   + "\n  K - Display Skills"
                   + "\n  A - Display Attack"
                   + "\n  L - Load Game"
@@ -80,12 +83,6 @@ public class GameMenuView extends View{
         
         return false;
     }
-
-    /*private void startNewGame() {
-        GameControl.createNewGame(InitialPlayer.getPlayer());
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
-    }*/
     
 private void displayMap() {
         
@@ -93,8 +90,6 @@ private void displayMap() {
         String rightIndicator;
         String greenBackgroundColor;
         String whiteBackgroundColor;
-        //String textColor;
-        
 
         Game game = InitialPlayer.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
@@ -152,17 +147,24 @@ private void displayMap() {
         System.out.println("              LIST OF INVENTORY ITEMS");
         System.out.println();
         line = new StringBuilder("                                  ");
-        line.insert(0, "Name");
-        line.insert(20, "Point Required");
-        line.insert(40, "Quantity In Stock");
+        line.insert(16, "Point");
+        line.insert(26, "Quantity");
         System.out.println(line.toString());
         
+        line = new StringBuilder("                                  ");
+        line.insert(0, "Name");
+        line.insert(16, "Required");
+        line.insert(26, "In Stock");
+        line.insert(36, "Description");
+        System.out.println(line.toString());
+        System.out.println();
         
         for (InventoryItem item: inventory) {
             line = new StringBuilder("                                  ");
             line.insert(0, item.getName());
-            line.insert(20, item.getPointRequired());
-            line.insert(40, item.getQuantityInStock());
+            line.insert(16, item.getPointRequired());
+            line.insert(26, item.getQuantityInStock());
+            line.insert(36, item.getDescription());
  
             // display the line
             System.out.println(line.toString());
@@ -179,21 +181,61 @@ private void displayMap() {
         System.out.println("              LIST OF ACTOR COLLECTION");
         System.out.println();
         line = new StringBuilder("                                  ");
-        line.insert(0, "Name");
-        line.insert(20, "True Love");
-        line.insert(40, "Iocane Power");
+        line.insert(15, "Starting");
+        line.insert(23, "True");
+        line.insert(29, "Iocane");
+        line.insert(37, "Miracle");
+        line.insert(52, "Health");
         System.out.println(line.toString());
         
+        line = new StringBuilder("                                  ");
+        line.insert(0, "Name");
+        line.insert(15, "Life");
+        line.insert(23, "Love");
+        line.insert(29, "Power");
+        line.insert(37, "Potion");
+        line.insert(45, "Egg");
+        line.insert(52, "Strength");
+        System.out.println(line.toString());
+        System.out.println();
         
-        for (CollectedItem actor: collect) {
+        // new array for sort max health strength
+        int[] ranks = new int [4];
+        
+        int j = 0;
+        for (CollectedItem actor : collect) {
+            int i = 0;
             line = new StringBuilder("                                  ");
             line.insert(0, actor.getActorName());
-            line.insert(20, actor.getTrueLove());
-            line.insert(40, actor.getIocanePowder());
- 
-            // display the line
+            line.insert(15, actor.getLife());
+            i = (int) (i + (actor.getLife()*100));
+            line.insert(23, actor.getTrueLove());
+            i = (int) (i + (actor.getTrueLove()*100));
+            line.insert(29, actor.getIocanePowder());
+            i = (int) (i + (actor.getIocanePowder()*100));
+            line.insert(37, actor.getMiraclePotions());
+            i = (int) (i + (actor.getMiraclePotions()*50));
+            line.insert(45, actor.getEgg());
+            i = (int) (i + (actor.getEgg()*10));
+            line.insert(52, i);
+            ranks[j] = i;
+            j++;
             System.out.println(line.toString());
         }
+
+        Arrays.sort(ranks);
+        //System.out.println("The max health is: " + ranks[ranks.length-1]);
+
+        int max = ranks[0];
+        int index = 0;
+        for (int i = 1; i < (ranks.length); i++) {
+            if (ranks[i] > max) {
+                max = ranks[i];
+            }
+        }
+        
+        System.out.println("The highest health point is: " + max);
+
     }
         
     private void MiracleMaxStoreView() {
@@ -221,7 +263,6 @@ private void displayMap() {
     private void saveGame() {
         System.out.println("\n*** saveGame() function called ***");
     }
-
     private void displayMenu() {
         System.out.println("\n*** displayMenu() function called ***");
     }

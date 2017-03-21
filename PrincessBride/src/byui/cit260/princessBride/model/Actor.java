@@ -5,8 +5,8 @@
  */
 package byui.cit260.princessBride.model;
 
-import java.awt.Point;
-import java.io.Serializable;
+//import java.awt.Point;
+//import java.io.Serializable;
 
 /**
  *
@@ -14,12 +14,14 @@ import java.io.Serializable;
  */
 public enum Actor /*implements Serializable*/ {
     
-/*InigoMontoya ("A spaniard seeking to avenge his father"),
-Fezzik ("A large Hearted Giant that only wants to help his friends"),
-MiracleMax("A miracle worker fired by the Prince"),
-Vizzini("A know it all that doesn't know the definition of inconceivable"), */
-    vizzini, fezzik, miracleMax, inigoMontoya;
-
+/*inigoMontoya,("A spaniard seeking to avenge his father"),
+fezzik,("A large Hearted Giant that only wants to help his friends"),
+miracleMax,("A miracle worker fired by the Prince"),
+vizzini,("A know it all that doesn't know the definition of inconceivable")*/
+   vizzini, 
+   fezzik, 
+   miracleMax, 
+   inigoMontoya;
 }
     
 /*// class instance variables

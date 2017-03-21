@@ -5,6 +5,7 @@
  */
 package buyi.cit260.princessBride.control;
 
+import byui.cit260.princessBride.control.InventoryControl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

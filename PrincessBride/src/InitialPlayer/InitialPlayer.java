@@ -5,7 +5,7 @@
  */
 package InitialPlayer;
 
-import buyi.cit260.princessBride.view.StartProgramView;
+import byui.cit260.princessBride.view.StartProgramView;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Player;
 import java.io.PrintWriter;

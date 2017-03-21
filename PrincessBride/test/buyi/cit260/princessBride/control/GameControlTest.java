@@ -5,6 +5,7 @@
  */
 package buyi.cit260.princessBride.control;
 
+import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.exceptions.GameControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -284,7 +285,7 @@ public class GameControlTest {
      * Test of calcStrength method, of class GameControl.
      */
     @Test
-    public void testCalcStrength() {
+    public void testCalcStrength() throws GameControlException {
         System.out.println("calcStrength");
         
         /*******************************
@@ -610,7 +611,7 @@ public class GameControlTest {
      * Test of calcAttack method, of class GameControl.
      */
     @Test
-    public void testCalcAttack() {
+    public void testCalcAttack() throws GameControlException {
         System.out.println("calcAttack");
         
         /*******************************

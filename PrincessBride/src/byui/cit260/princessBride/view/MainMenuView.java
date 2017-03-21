@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.princessBride.view;
+package byui.cit260.princessBride.view;
 
 import InitialPlayer.InitialPlayer;
-import buyi.cit260.princessBride.control.GameControl;
+import byui.cit260.princessBride.control.GameControl;
 import java.util.Scanner;
 
 /**

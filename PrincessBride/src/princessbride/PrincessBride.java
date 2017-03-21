@@ -7,7 +7,7 @@ package princessbride;
 
 //All imports required by the classes done by Lai, Jack, Ben and Dan.
 
-import buyi.cit260.princessBride.view.StartProgramView;
+import byui.cit260.princessBride.view.StartProgramView;
 import byui.cit260.princessBride.model.BackPack;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;

@@ -5,7 +5,7 @@
  */
 package byui.cit260.princessBride.model;
 
-import buyi.cit260.princessBride.control.CollectedItem;
+//import buyi.cit260.princessBride.control.CollectedItem;
 import java.awt.Point;
 import java.io.Serializable;
 
@@ -42,7 +42,7 @@ public class Game implements Serializable{
         this.noPeople = noPeople;
     }
 
-        public Player getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 
@@ -50,7 +50,7 @@ public class Game implements Serializable{
         this.player = player;
     }
     
-        public InventoryItem[] getInventory() {
+    public InventoryItem[] getInventory() {
         return inventory;
     }
 
@@ -58,7 +58,15 @@ public class Game implements Serializable{
         this.inventory = inventory;
     }
     
-        public BackPack getBackPack() {
+    public CollectedItem[] getCollect() {
+        return collect;
+    }
+
+    public void setCollect(CollectedItem[] collect) {
+        this.collect = collect;
+    }
+    
+    public BackPack getBackPack() {
         return backPack;
     }
 
@@ -66,6 +74,9 @@ public class Game implements Serializable{
         this.backPack = backPack;
     }
     
+    public void setMap(Map map) {
+        this.map = map;
+    }
     
     
     /*@Override
@@ -110,31 +121,12 @@ public class Game implements Serializable{
         System.out.println("\n*** setItem() function called ***");
     }*/
 
-    public void setMap(Map map) {
-        this.map = map;
-        //System.out.println("\n*** setMap() function called ***");
-    }
-
-    //public void setInventory(InventoryItem[] inventoryList) {
-    //    System.out.println("\n*** setInventory() function called ***");
-    //}
-
-    //public InventoryItem[] getInventory() {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
-
     public Map getMap() {
         return map;
-    }
-
-
-    public CollectedItem[] getCollect() {
-        return collect;
     }
 
     public Point[] getActorsLocation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
 }

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.princessBride.control;
+package byui.cit260.princessBride.control;
 
-import buyi.cit260.princessBride.control.ItemControl.ItemEnum;
+//import buyi.cit260.princessBride.control.ItemControl.ItemEnum;
 import byui.cit260.princessBride.model.InventoryItem;
 
 /**
@@ -15,7 +15,7 @@ import byui.cit260.princessBride.model.InventoryItem;
 public class ItemControl {
 
     
- static InventoryItem[] createInventory() {
+ /*static InventoryItem[] createInventory() {
         
         //created array (list) of inventory items
         InventoryItem[] inventory = new InventoryItem[3];
@@ -43,5 +43,5 @@ public class ItemControl {
     
             public enum ItemEnum {
         egg, MiraclePotion, trueLove;
-    }   
+    }   */
 }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package buyi.cit260.princessBride.control;
+package byui.cit260.princessBride.control;
 
+import byui.cit260.princessBride.model.CollectedItem;
 import InitialPlayer.InitialPlayer;
 import byui.cit260.princessBride.exceptions.GameControlException;
 import byui.cit260.princessBride.model.Actor;
@@ -49,6 +50,10 @@ public class GameControl {
         //create the inventory list and save in the game
         InventoryItem[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
+        
+        //create the collected item and save in the game
+        CollectedItem[] collectedList = GameControl.createCollectedList();
+        game.setCollect(collectedList);
         
         Map map = MapControl.createMap(); // create and initialize new map
         game.setMap(map); // save map in game
@@ -148,10 +153,8 @@ public class GameControl {
     }
     
     
-    public double calcHealth(double strength, double attack) {
-                           
+    public double calcHealth(double strength, double attack) {                  
         double health = strength-attack;
-        
         return health;
     }
 
@@ -161,9 +164,7 @@ public class GameControl {
     }
     
     public static InventoryItem[] createInventoryList() {
-        //System.out.println("\n*** createInventoryList() function called ***");
-        //return null;
-        InventoryItem[] inventory = new InventoryItem[12];
+        InventoryItem[] inventory = new InventoryItem[10];
         
         InventoryItem trueLove = new InventoryItem();
         trueLove.setName("True Love");
@@ -277,36 +278,6 @@ public class GameControl {
         return inventory;
         }
 
-    
-    public static InventoryItem[] getSortedInventoryList() {
-        
-        // get inventory list for the current game
-        InventoryItem[] originalInventoryList = 
-                
-                InitialPlayer.getCurrentGame().getInventory();
-        
-        // clone (make a copy) orignalList
-        InventoryItem[] inventoryList = originalInventoryList.clone();
-        
-       // using a BubbleSort to sort the list of inventoryList by name
-        InventoryItem tempInventoryItem;
-        for (int i = 0; i < inventoryList.length-1; i++) {
-            for (int j = 0; j < inventoryList.length-1-i; j++) {
-                if (inventoryList[j].getDescription().
-                        compareToIgnoreCase(inventoryList[j + 1].getDescription()) > 0) {
-                    tempInventoryItem = inventoryList[j];
-                    inventoryList[j] = inventoryList[j+1];
-                    inventoryList[j+1] = tempInventoryItem;
-                }
-            }
-        }
-        
-        return inventoryList;
-    }
-    
-    public static InventoryItem[] getInventory() {
-        return InitialPlayer.getCurrentGame().getInventory();
-    }
         static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
@@ -322,11 +293,11 @@ public class GameControl {
         }
         
     public static CollectedItem[] createCollectedList() {
-	
         CollectedItem[] collect = new CollectedItem[4];
         
         CollectedItem inigoMontoya = new CollectedItem();
         inigoMontoya.setActorName("Inigo Montoya");
+        inigoMontoya.setLife(1);
         inigoMontoya.setTrueLove(0);
         inigoMontoya.setSword(1);
         inigoMontoya.setRock(0);
@@ -336,10 +307,12 @@ public class GameControl {
         inigoMontoya.setMiraclePotions(0);
 	inigoMontoya.setMap(0);
 	inigoMontoya.setHolocaustCloak(0);
-	inigoMontoya.setEgg(0);
+	inigoMontoya.setEgg(6);
         collect[Actor.inigoMontoya.ordinal()] = inigoMontoya;
 
 	CollectedItem fezzik = new CollectedItem();
+        fezzik.setActorName("Fezzik");
+        fezzik.setLife(1);
         fezzik.setTrueLove(0);
         fezzik.setSword(0);
         fezzik.setRock(10);
@@ -347,25 +320,29 @@ public class GameControl {
         fezzik.setIocanePowder(0);
         fezzik.setMoneyBag(0);
         fezzik.setMiraclePotions(0);
-	fezzik.setMap(0);
+        fezzik.setMap(0);
 	fezzik.setHolocaustCloak(0);
-	fezzik.setEgg(100);
+	fezzik.setEgg(10);
         collect[Actor.fezzik.ordinal()] = fezzik;
 
 	CollectedItem miracleMax = new CollectedItem();
+        miracleMax.setActorName("Miracle Max");
         miracleMax.setTrueLove(0);
+        miracleMax.setLife(1);
         miracleMax.setSword(0);
         miracleMax.setRock(0);
         miracleMax.setDagger(0);
         miracleMax.setIocanePowder(0);
         miracleMax.setMoneyBag(0);
-        miracleMax.setMiraclePotions(10);
+        miracleMax.setMiraclePotions(2);
 	miracleMax.setMap(0);
 	miracleMax.setHolocaustCloak(0);
-	miracleMax.setEgg(50);
+	miracleMax.setEgg(5);
         collect[Actor.miracleMax.ordinal()] = miracleMax;
 
 	CollectedItem vizzini = new CollectedItem();
+        vizzini.setActorName("Vizzini");
+        vizzini.setLife(1);
         vizzini.setTrueLove(0);
         vizzini.setSword(1);
         vizzini.setRock(0);
@@ -375,10 +352,9 @@ public class GameControl {
         vizzini.setMiraclePotions(0);
 	vizzini.setMap(1);
 	vizzini.setHolocaustCloak(1);
-	vizzini.setEgg(40);
+	vizzini.setEgg(4);
         collect[Actor.vizzini.ordinal()] = vizzini;
         
         return collect;
-        
     }
 }
