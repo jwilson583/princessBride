@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.model;
 
 //import java.awt.Point;
+import java.awt.Point;
 //import java.io.Serializable;
 
 /**
@@ -14,30 +15,28 @@ package byui.cit260.princessBride.model;
  */
 public enum Actor /*implements Serializable*/ {
     
-/*inigoMontoya,("A spaniard seeking to avenge his father"),
-fezzik,("A large Hearted Giant that only wants to help his friends"),
-miracleMax,("A miracle worker fired by the Prince"),
-vizzini,("A know it all that doesn't know the definition of inconceivable")*/
-   vizzini, 
+inigoMontoya("A spaniard seeking to avenge his father"),
+fezzik("A large Hearted Giant that only wants to help his friends"),
+miracleMax("A miracle worker fired by the Prince"),
+vizzini("A know it all that doesn't know the definition of inconceivable");
+   /*vizzini, 
    fezzik, 
    miracleMax, 
-   inigoMontoya;
-}
+   inigoMontoya;*/
     
-/*// class instance variables
-   private final String description;
-   private final Point coordinates;
+// class instance variables
+private final String description;
+private final Point coordinates;
    
-Actor(String description) {
+    Actor(String description) {
         this.description = description;
         coordinates = new Point(1,1);
-}
+    }
         
     public String getDescription() {
         return description;
     }
     public Point getCoordinates() {
-  return coordinates;
+    return coordinates;
     }
-    
-}*/
+}

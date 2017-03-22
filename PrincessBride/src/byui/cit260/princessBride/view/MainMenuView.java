@@ -7,6 +7,8 @@ package byui.cit260.princessBride.view;
 
 import InitialPlayer.InitialPlayer;
 import byui.cit260.princessBride.control.GameControl;
+import byui.cit260.princessBride.exceptions.GameControlException;
+import byui.cit260.princessBride.exceptions.MapControlException;
 import java.util.Scanner;
 
 /**
@@ -61,12 +63,20 @@ public class MainMenuView extends View{
 
     private void startNewGame() {
 
+        try {
+            // create a new game
         GameControl.createNewGame(InitialPlayer.getPlayer());
-        
+        } catch (MapControlException mce) {
+            System.out.println(mce.getMessage());
+            return;
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            return;
+        }
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
-
     }
 
     private void startExistingGame() {

@@ -6,6 +6,7 @@
 package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.control.MapControl;
+import byui.cit260.princessBride.exceptions.MapControlException;
 import byui.cit260.princessBride.model.Actor;
 import java.awt.Point;
 
@@ -65,12 +66,17 @@ public class MoveActorView {
                 break;
 
             // move actor to specified location
-            int returnValue = MapControl.moveActorToLocation(actor, coordinates);
+            try {
+                MapControl.moveActorToLocation(actor, coordinates);
+            } catch (MapControlException me) {
+                System.out.println(me.getMessage());
+            }
+            /*int returnValue = MapControl.moveActorToLocation(actor, coordinates);
             if (returnValue < 0) {
                 System.out.println("\nERROR" + actor + 
                                " counld not be moved to location: " + 
                                coordinates.x + ", " + coordinates.y);
-            }
+            }*/
 
             System.out.println("\n" + actor + 
                                " was successfully moved to location: " + 

@@ -8,6 +8,7 @@ package byui.cit260.princessBride.control;
 import byui.cit260.princessBride.model.CollectedItem;
 import InitialPlayer.InitialPlayer;
 import byui.cit260.princessBride.exceptions.GameControlException;
+import byui.cit260.princessBride.exceptions.MapControlException;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
@@ -40,7 +41,7 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) throws MapControlException {
         
         Game game = new Game(); // create new game
         InitialPlayer.setCurrentGame(game); // save in InitialPlayer
