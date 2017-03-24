@@ -19,17 +19,66 @@ import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.Skills;
 import byui.cit260.princessBride.model.Store;
 import byui.cit260.princessBride.model.Traps;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author Jack Wilson
  */
 public class PrincessBride {
-
+    
+    
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    private static PrintWriter logFile = null;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {   
+        
+        try {
+        PrincessBride.inFile =
+                new BufferedReader(new InputStreamReader(System.in));
+        
+        PrincessBride.outFile = new PrintWriter(System.out, true);
+        
+         String filePath = "log.txt";
+            PrincessBride.logFile = new PrintWriter(filePath);
+        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
+            return;
+        
+        }
+        catch(Throwable e){
+        System.out.println("Exception: " + e.toString() + 
+                                   "\nCause: " + e.getCause() + 
+                                   "\nMessage: " + e.getMessage());
+
+                e.printStackTrace();;
+        }
+        finally {
+            try{
+                if(PrincessBride.inFile != null)
+                   PrincessBride.inFile.close();
+                
+                if(PrincessBride.outFile !=null)
+                   PrincessBride.outFile.close();
+                
+                if(PrincessBride.logFile !=null)
+                   PrincessBride.logFile.close();
+                               
+            }
+            catch (IOException ex){
+            System.out.println("Error closing Files");
+            return;
+            }
+        }
+        
         
         // create StartProgramVieewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
@@ -137,6 +186,24 @@ public class PrincessBride {
         System.out.println(sceneInfo);
         
         }
+        
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+    public static void setOutFile(PrintWriter outFile) {
+        PrincessBride.outFile = outFile;
+    }
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+    public static void setInFile(BufferedReader inFile) {
+        PrincessBride.inFile = inFile;
+    }  
 
-    
+    public static PrintWriter getLogFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public static void setLogFile(PrintWriter logFile) {
+        PrincessBride.logFile = logFile;
+    }
 }

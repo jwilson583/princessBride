@@ -5,7 +5,13 @@
  */
 package byui.cit260.princessBride.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = PrincessBride.getInFile();
+    protected final PrintWriter console = PrincessBride.getOutFile();
     
     public View (){
         
@@ -40,26 +49,34 @@ public void display() {
 @Override
 public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; // value to be returned
+        
+        String selection = null; // value to be returned
         boolean valid = false; // initialize to not valid
      
-        while (!valid) { // loop while an invalid value is enter
-            System.out.println("\n" + this.displayMessage);
-         
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-         
-            if (value.length() < 1) { // value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
+      
+            while (!valid) { try {
+                // loop while an invalid value is enter
+                                
+                
+                selection = this.keyboard.readLine(); // get next line typed on keyboard
+                selection = selection.trim(); // trim off leading and trailing blanks
+                
+                if (selection.length() < 1) { // value is blank
+                    ErrorView.display(this.getClass().getName(), 
+                                      "You must enter a value.");
+                    continue;
+                }
+                
+                break; //end the loop
+            } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(), 
+                              "Error reading input: " + e.getMessage());
+            return null;
             }
-          
-            break; //end the loop
-        
         }
         
-        return value; // return the value entered
+        
+        return selection; // return the value entered
     }        
 }
 

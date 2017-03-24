@@ -5,14 +5,28 @@
  */
 package byui.cit260.princessBride.view;
 
+import java.io.PrintWriter;
+import princessbride.PrincessBride;
+
 /**
  *
  * @author school
  */
-class ErrorView {
+public class ErrorView {
 
-    static void display(String moveActorView, String invalid_selection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   private static final PrintWriter errorFile = PrincessBride.getOutFile();
+   private static final PrintWriter logFile = PrincessBride.getLogFile();
+
+   public static void display(String className, String errorMessage) {
+
+       errorFile.println(
+                   "-------------------------------------------------------"
+                 + "\n- ERROR - " + errorMessage
+                 + "\n-------------------------------------------------------");
+
+        // log error
+        logFile.println(className + " - " +  errorMessage); 
     }
-    
+
 }
+
