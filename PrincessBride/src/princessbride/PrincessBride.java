@@ -30,14 +30,53 @@ import java.io.PrintWriter;
  */
 public class PrincessBride {
     
-    
+    private static Game currentGame = null;
+    private static Player player = null;
     
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
+    
     private static PrintWriter logFile = null;
-    /**
-     * @param args the command line arguments
-     */
+    
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+    
+    public static void setCurrentGame(Game currentGame) {
+        PrincessBride.currentGame = currentGame;
+    }
+    
+    public static Player getPlayer() {
+        return player;
+    }
+    
+    public static void setPlayer(Player player) {
+        PrincessBride.player = player; 
+    }
+    
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+    
+    public static void setOutFile(PrintWriter outFile) {
+        PrincessBride.outFile = outFile;
+    }
+    
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+    
+    public static void setInFile(BufferedReader inFile) {
+        PrincessBride.inFile = inFile;
+    }  
+
+    public static PrintWriter getLogFile() {
+       return logFile;
+    }
+    public static void setLogFile(PrintWriter logFile) {
+        PrincessBride.logFile = logFile;
+    }
+    
     public static void main(String[] args) {   
         
         try {
@@ -78,26 +117,5 @@ public class PrincessBride {
             return;
             }
         }
-    }
-
-  
-    public static PrintWriter getOutFile() {
-        return outFile;
-    }
-    public static void setOutFile(PrintWriter outFile) {
-        PrincessBride.outFile = outFile;
-    }
-    public static BufferedReader getInFile() {
-        return inFile;
-    }
-    public static void setInFile(BufferedReader inFile) {
-        PrincessBride.inFile = inFile;
-    }  
-
-    public static PrintWriter getLogFile() {
-       return logFile;
-    }
-    public static void setLogFile(PrintWriter logFile) {
-        PrincessBride.logFile = logFile;
     }
 }

@@ -5,16 +5,14 @@
  */
 package byui.cit260.princessBride.view;
 
-import InitialPlayer.InitialPlayer;
-//import byui.cit260.princessBride.control.GameControl;
+
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.CollectedItem;
-//import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Location;
 import byui.cit260.princessBride.model.Map;
-//import java.io.PrintWriter;
 import java.util.Arrays;
+import princessbride.PrincessBride;
 
 /**
  * 
@@ -91,7 +89,7 @@ private void displayMap() {
         String greenBackgroundColor;
         String whiteBackgroundColor;
 
-        Game game = InitialPlayer.getCurrentGame(); // retreive the game
+        Game game = PrincessBride.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
 
@@ -141,7 +139,7 @@ private void displayMap() {
     private void viewInventory() {
         StringBuilder line;
         
-        Game game = InitialPlayer.getCurrentGame();
+        Game game = PrincessBride.getCurrentGame();
         InventoryItem[] inventory = game.getInventory();
         
         System.out.println("              LIST OF INVENTORY ITEMS");
@@ -175,7 +173,7 @@ private void displayMap() {
         
         StringBuilder line;
         
-        Game game = InitialPlayer.getCurrentGame();
+        Game game = PrincessBride.getCurrentGame();
         CollectedItem[] collect = game.getCollect();
         
         System.out.println("              LIST OF ACTOR COLLECTION");

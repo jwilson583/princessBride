@@ -5,13 +5,14 @@
  */
 package byui.cit260.princessBride.view;
 
+import princessbride.PrincessBride;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import princessbride.PrincessBride;
+
 
 /**
  *
@@ -30,6 +31,7 @@ public abstract class View implements ViewInterface {
     public View (String message) {
         this.displayMessage = message;
     }
+
 @Override
 public void display() {
               
@@ -50,33 +52,30 @@ public void display() {
 public String getInput() {
         
         
-        String selection = null; // value to be returned
+        String value = null; // value to be returned
         boolean valid = false; // initialize to not valid
      
       
-            while (!valid) { try {
-                // loop while an invalid value is enter
-                                
+            while (!valid) {
+                this.console.println("\n" + this.displayMessage);
                 
-                selection = this.keyboard.readLine(); // get next line typed on keyboard
-                selection = selection.trim(); // trim off leading and trailing blanks
-                
-                if (selection.length() < 1) { // value is blank
-                    ErrorView.display(this.getClass().getName(), 
-                                      "You must enter a value.");
-                    continue;
+                try {
+                    value = this.keyboard.readLine(); // get next line typed on keyboard
                 }
-                
-                break; //end the loop
-            } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(), 
-                              "Error reading input: " + e.getMessage());
-            return null;
+                catch (IOException ex){
+                    Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                value = value.trim(); //Trim off leading and trailing blanks
+            
+            if (value.length() < 1) { //Value is blank
+                ErrorView.display(this.getClass().getName(),
+                        "\nInvalid: entry required.");
+                continue;
             }
+            break; //End the loop
         }
         
-        
-        return selection; // return the value entered
-    }        
+        return value; //Return entered value
+    }
+    
 }
-

@@ -5,7 +5,7 @@
  */
 package byui.cit260.princessBride.view;
 
-import InitialPlayer.InitialPlayer;
+
 import byui.cit260.princessBride.control.GameControl;
 import byui.cit260.princessBride.exceptions.GameControlException;
 import byui.cit260.princessBride.exceptions.MapControlException;
@@ -66,7 +66,7 @@ public class MainMenuView extends View{
 
         try {
             // create a new game
-        GameControl.createNewGame(InitialPlayer.getPlayer());
+        GameControl.createNewGame(PrincessBride.getPlayer());
         } catch (MapControlException mce) {
             System.out.println(mce.getMessage());
             return;
@@ -111,7 +111,7 @@ public class MainMenuView extends View{
         
         try {
             // save the game to the speciried file
-            GameControl.saveGame(InitialPlayer.getCurrentGame(), filePath);
+            GameControl.saveGame(PrincessBride.getCurrentGame(), filePath);
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         } 

@@ -5,13 +5,14 @@
  */
 package byui.cit260.princessBride.control;
 
-import InitialPlayer.InitialPlayer;
+import princessbride.PrincessBride;
 import byui.cit260.princessBride.exceptions.MapControlException;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Map;
 import static byui.cit260.princessBride.model.Map.createScenes;
 import byui.cit260.princessBride.model.Scene;
 import java.awt.Point;
+
 
 /**
  *
@@ -49,7 +50,7 @@ public class MapControl {
     public static void moveActorToLocation(Actor actor, Point coordinates) 
                             throws MapControlException {
         
-        Map map = InitialPlayer.getCurrentGame().getMap();
+        Map map = PrincessBride.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
         int newColumn = coordinates.y-1;
         
