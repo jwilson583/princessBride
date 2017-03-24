@@ -36,7 +36,7 @@ public class AttackMenuView extends View {
             this.fleeMap();
             break;
             default:
-                System.out.println("\n ***Invalid Selection Try Again***");
+                ErrorView.display("AttackMenuView", "\n ***Invalid Selection Try Again***");
                 break;
         }
         return false;
@@ -44,12 +44,12 @@ public class AttackMenuView extends View {
     
     private void attackCharacter() {
     AttackControl attack= new AttackControl();
-    System.out.println("\n ***Attacking***");
+   this.console.println("\n ***Attacking***");
     
     }
    
     private void fleeMap(){
-    System.out.println("\n ***Fleeing***");
+    this.console.println("\n ***Fleeing***");
     }
     
     

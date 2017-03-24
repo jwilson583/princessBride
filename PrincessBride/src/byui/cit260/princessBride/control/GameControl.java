@@ -18,7 +18,14 @@ import byui.cit260.princessBride.model.Map;
 import byui.cit260.princessBride.model.Player;
 import byui.cit260.princessBride.model.Scene;
 import byui.cit260.princessBride.model.SceneType;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
+import princessbride.PrincessBride;
 
 /**
  *
@@ -63,7 +70,8 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);
         
     }
-    
+
+
     int startStrengthPt = 100;
     int miraclePotionPt = 100;
     int travelPt = 1;
@@ -357,5 +365,38 @@ public class GameControl {
         collect[Actor.vizzini.ordinal()] = vizzini;
         
         return collect;
+    }
+    
+     public static void saveGame(Game game, String filepath) 
+            throws GameControlException {
+
+        try( FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); // write the game object out to file
+        }
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        } 
+     }
+     
+      public static void getSaveGame(String filepath) 
+                        throws GameControlException {
+        Game game = null;
+
+        try( FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject(); // read the game object from file
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+
+       // close the outuput file
+          InitialPlayer.setCurrentGame(game); // save in Princess Bride
     }
 }

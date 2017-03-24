@@ -25,7 +25,7 @@ public abstract class View implements ViewInterface {
     protected final PrintWriter console = PrincessBride.getOutFile();
     
     public View (){
-        
+      
     }
     public View (String message) {
         this.displayMessage = message;
