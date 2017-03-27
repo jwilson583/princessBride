@@ -90,7 +90,7 @@ public class Map implements Serializable {
         
         Scene florinFarmScene = new Scene();
         florinFarmScene.setDescription(
-            "Description about florinFarm");
+            "Florin Farm");
         florinFarmScene.setMapSymbol("FF");
         florinFarmScene.setBlocked(false);
         florinFarmScene.setTravelTime(100);
@@ -98,7 +98,7 @@ public class Map implements Serializable {
         
         Scene cliffsOfInsanityScene = new Scene();
         cliffsOfInsanityScene.setDescription(
-            "Description about cliffsOfInsanity");
+            "Cliffs Of Insanity");
         cliffsOfInsanityScene.setMapSymbol("CI");
         cliffsOfInsanityScene.setBlocked(false);
         cliffsOfInsanityScene.setTravelTime(100);
@@ -106,7 +106,7 @@ public class Map implements Serializable {
         
         Scene guilderFrontierScene = new Scene();
         guilderFrontierScene.setDescription(
-            "Description about guilderFrontier");
+            "Guilder Frontier");
         guilderFrontierScene.setMapSymbol("GF");
         guilderFrontierScene.setBlocked(false);
         guilderFrontierScene.setTravelTime(100);
@@ -114,7 +114,7 @@ public class Map implements Serializable {
         
         Scene fireSwampScene = new Scene();
         fireSwampScene.setDescription(
-            "Description about fireSwamp");
+            "Fire Swamp");
         fireSwampScene.setMapSymbol("FS");
         fireSwampScene.setBlocked(false);
         fireSwampScene.setTravelTime(100);
@@ -122,7 +122,7 @@ public class Map implements Serializable {
         
         Scene greenlandScene = new Scene();
         greenlandScene.setDescription(
-            "Description about greenland");
+            "Greenland");
         greenlandScene.setMapSymbol("GL");
         greenlandScene.setBlocked(false);
         greenlandScene.setTravelTime(100);
@@ -130,7 +130,7 @@ public class Map implements Serializable {
         
         Scene thievesForestScene = new Scene();
         thievesForestScene.setDescription(
-            "Description about thievesForest");
+            "Thieves Forest");
         thievesForestScene.setMapSymbol("TF");
         thievesForestScene.setBlocked(false);
         thievesForestScene.setTravelTime(100);
@@ -138,7 +138,7 @@ public class Map implements Serializable {
         
         Scene pitOfDespairScene = new Scene();
         pitOfDespairScene.setDescription(
-            "Description about pitOfDespair");
+            "Pit Of Despair");
         pitOfDespairScene.setMapSymbol("PD");
         pitOfDespairScene.setBlocked(false);
         pitOfDespairScene.setTravelTime(100);
@@ -146,7 +146,7 @@ public class Map implements Serializable {
         
         Scene florinCastleScene = new Scene();
         florinCastleScene.setDescription(
-            "Description about florinCastle");
+            "Florin Castle");
         florinCastleScene.setMapSymbol("FC");
         florinCastleScene.setBlocked(false);
         florinCastleScene.setTravelTime(100);

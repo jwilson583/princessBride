@@ -7,7 +7,10 @@ package byui.cit260.princessBride.view;
 
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
+import byui.cit260.princessBride.model.Location;
+import byui.cit260.princessBride.model.Map;
 import java.awt.Point;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +27,7 @@ public class MapMenuView extends View{
             + "\n  ----------------------------------------"
             + "\n | Map Menu                               |"
             + "\n  ----------------------------------------"
+            + "\n M - View Map of Florin"
             + "\n F - Florin Farm"
             + "\n I - Cliffs of Insanity"
             + "\n G - Guilder Frontier"
@@ -33,6 +37,7 @@ public class MapMenuView extends View{
             + "\n P - Pit of Despair"
             + "\n C - Florin Castle"
             + "\n R - Print Actor Report"
+            + "\n W - Write Map Report"
             + "\n Q - Return to Main Menu"
             + "\n------------------------------------------");
     }
@@ -46,6 +51,9 @@ public class MapMenuView extends View{
         value = value.toUpperCase(); // convert menuOption to upper case
         
         switch (value) {
+            case "M": // display map of Florin
+                this.displayMap();
+                break;
             case "F": // display Florin Farm Map
                 this.displayFlorinFarmMap();
                 break;
@@ -72,6 +80,9 @@ public class MapMenuView extends View{
                 break;
             case "R": // Print Actor Report
                 this.printActorReport();
+                break;
+            case "W": // print list of Scenes
+                this.MapReport();
                 break;
             case "Q": // return to main menu
                 this.displayMainMenuView();
@@ -141,6 +152,10 @@ public class MapMenuView extends View{
      }
  
    public void printActorReport() {
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String dateTime = formatter.format(currentTime);
+       
         // get the filepath and name of the file
         this.console.println("\nEnter the file path where the report is to be saved");
         
@@ -153,10 +168,7 @@ public class MapMenuView extends View{
         try (PrintWriter reportFile = new PrintWriter(filePath)) {
             
             
-            LocalDateTime currentTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            String dateTime = formatter.format(currentTime);
-            
+
             reportFile.println("Report printed: " + dateTime);
           
             reportFile.println();
@@ -172,4 +184,103 @@ public class MapMenuView extends View{
 
    
    }
+   
+   private void displayMap() {
+        
+        String leftIndicator;
+        String rightIndicator;
+        String greenBackgroundColor;
+        String whiteBackgroundColor;
+
+        Game game = PrincessBride.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+
+        System.out.println("                 The LAND OF FLORIN");
+        //System.out.println("\n");
+        System.out.print("\n  ");
+        for (int column = 0; column < locations[0].length; column++) {
+            System.out.print("  " + column + "  "); // print col numbers to side of map
+        }
+        System.out.println();
+        System.out.print("   ");
+        for (int i = 1; i < 50; i++) {
+            System.out.print("-");
+            }
+        System.out.println();
+        for (int row = 0; row < locations.length; row++) {
+            System.out.print(row + " "); // print row numbers to side of map
+            for (int column = 0; column < locations[row].length; column++) {
+                leftIndicator = " ";
+                rightIndicator = " ";
+                if (locations[row][column] == map.getCurrentLocation()) {
+                    leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "*"; // same as above
+                } else if (locations[row][column].isVisited()) {
+                    leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "<"; // same as above
+                }
+                System.out.print("|"); // start map with a |
+                if (locations[row][column].getScene() == null) {
+                    System.out.print(leftIndicator + "??" + rightIndicator);
+                } else {
+                    greenBackgroundColor = "\u001B[42m";
+                    whiteBackgroundColor = "\u001B[0m";
+                            //textColor = "\b\u001B[37m";
+                    System.out.print(leftIndicator + greenBackgroundColor + locations[row][column].getScene().getMapSymbol() + whiteBackgroundColor + rightIndicator);
+                }
+            }
+            System.out.println("|");
+            System.out.print("   ");
+                for (int i = 1; i < 50; i++) {
+                    System.out.print("-");
+                    }
+            System.out.println();
+        }
+    }
+   
+   private void MapReport() {
+        
+        Game game = PrincessBride.getCurrentGame();
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+        
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        String dateTime = formatter.format(currentTime);
+
+        this.console.println("\nEnter the file path for file where the Map Report"
+                            + "is to be saved.");
+        String filePath = this.getInput();
+        
+        //create BufferedReader object for input file e.g. /Users/edwinyam/Downloads/test.txt
+        try (FileWriter outFile = new FileWriter(filePath, false)) {
+            
+            outFile.write("\n" + dateTime);
+            // print title and column headings
+            outFile.write("\n\n               Map Report            \n");  //change out.println to System.out.println
+            outFile.write(String.format("%n%-20s%10s%10s", "Place Name", "Symbol", "Location"));
+            outFile.write(String.format("%n%-20s%10s%10s", "------------------", "--------", "------"));
+            
+            // print the description, quanity and pric of each item
+            for (int row = 0; row < locations.length; row++) {
+            
+                for (int column = 0; column < locations[row].length; column++) {
+
+                    if (locations[row][column].getScene() != null) {
+
+                        outFile.write(String.format("%n%-20s%10s%10s", locations[row][column].getScene().getDescription() 
+                                                            , locations[row][column].getScene().getMapSymbol()
+                                                            , "(" + row + "," + column + ")"));
+                    }
+                }
+            }
+            outFile.flush(); // flush out any data left in the file stream
+            
+        } catch (Exception ex) {
+            ErrorView.display("MapMenuView", "Error writing to game report file. "
+                    + "\n\t" + ex.getMessage());
+        }
+                    System.out.println("Map Report has been saved.");
+    }
 }
