@@ -107,6 +107,10 @@ public class Scene implements Serializable{
     public String getMapSymbol() {
         return mapSymbol;
     }
+
+    public boolean isBlocked() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
             
     
 }

@@ -29,6 +29,7 @@ public class GameMenuView extends View{
                   + "\n|               Game Menu                |"
                   + "\n ----------------------------------------"
                   + "\n  M - View Map"
+                  + "\n  C - View Map Menu"
                   + "\n  I - View list of items in inventory"
                   + "\n  S - Miracle Max Store" //will move to Map sub-menu
                   + "\n  B - Dispaly Backpack"  //will move to Map sub-menu
@@ -49,6 +50,9 @@ public class GameMenuView extends View{
         switch (value) {
             case "M": // travel to new location
                 this.displayMap();
+                break;
+            case "C": // travel to new location
+                this.MapMenuView();
                 break;
             case "I": // view list of items in inventory
                 this.viewInventory();

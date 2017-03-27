@@ -125,4 +125,12 @@ public class Location implements Serializable{
         }
         return true;
     }
+
+    public void removeActor(Object actor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void addActor(Object actor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
