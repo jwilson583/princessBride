@@ -9,10 +9,16 @@ package byui.cit260.princessBride.view;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.CollectedItem;
-import byui.cit260.princessBride.model.Location;
-import byui.cit260.princessBride.model.Map;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import princessbride.PrincessBride;
+import byui.cit260.princessBride.view.View;
+import java.io.FileNotFoundException;
+import java.io.Writer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * 
@@ -39,6 +45,8 @@ public class GameMenuView extends View{
                   + "\n  L - Load Game"
                   + "\n  G - Save Game"
                   + "\n  Q - Return to Main Menu"
+                      +"\n***************************************"
+                      +"\n  O-Print Inventory"
                   + "\n -----------------------------------------");
     }
    @Override 
@@ -74,6 +82,9 @@ public class GameMenuView extends View{
             case "G": // Save Game
                 this.saveGame();
                 break;
+            case "O":    
+                this.PrintInventory ();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -83,7 +94,7 @@ public class GameMenuView extends View{
     }
     
 
-    private void viewInventory() {
+    public void viewInventory() {
         StringBuilder line;
         
         Game game = PrincessBride.getCurrentGame();
@@ -211,4 +222,32 @@ public class GameMenuView extends View{
     private void displayMenu() {
         System.out.println("\n*** displayMenu() function called ***");
     }
+
+    private void PrintInventory() {
+     
+        Game game = PrincessBride.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+        this.console.println("\nEnter the file path where the report is to be saved");
+        
+        String filePath = this.getInput();
+        if (filePath == null) {
+            return;
+        }
+        
+        try (PrintWriter out = new PrintWriter(filePath)){
+           out.println("\n\n          Inventory Sheet                        ");
+           out.printf("%n%-20s%20s%20s","Name","Quantity","Description");
+           out.printf("%n%-20s%20s%20s","-----","-------","-----------");
+                      
+           for (InventoryItem item : inventory){
+               out.printf("%n%-20s%20s%20s", item.getName()
+                                           , item.getQuantityInStock()
+                                           , item.getDescription());
+           }
+           
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
+        
