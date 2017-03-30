@@ -247,7 +247,7 @@ public class GameMenuView extends View{
            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }System.out.println(" Inventory sheet has been saved.");
     }
 }
         
