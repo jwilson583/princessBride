@@ -66,17 +66,17 @@ public class MapControl {
     }
     
     public static void movePlayerToStartingLocation(Map map) {
-        // movePlayer(map, 2, 2);
+        
         movePlayer(map, 0, 0);
     }
 
     public static void movePlayer(Map map, int row, int column) {
         map.setCurrentLocation(map.getLocations()[row][column]);
         map.getCurrentLocation().setVisited(true);
-
+        //System.out.println(map.getCurrentLocation());
         map.setCurrentRow(row);
         map.setCurrentColumn(column);
-
+        //System.out.println(map.getCurrentLocation());
     }
     
 }

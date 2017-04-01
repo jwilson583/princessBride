@@ -36,13 +36,13 @@ public class MapMenuView extends View{
             + "\n D - Move Down"
             + "\n L - Move Left"
             + "\n R - Move Right"
-            + "\n F - Florin Farm"
+            /*+ "\n F - Florin Farm"
             + "\n I - Cliffs of Insanity"
             + "\n G - Guilder Frontier"
             + "\n S - Fire Swamp"
             + "\n T - Thieves Forest"
             + "\n P - Pit of Despair"
-            + "\n C - Florin Castle"
+            + "\n C - Florin Castle"*/
             + "\n A - Print Actor Report"
             + "\n W - Write Map Report"
             + "\n Q - Return to Main Menu"
@@ -76,7 +76,7 @@ public class MapMenuView extends View{
             case "R": // Move right
                 this.moveRight();
                 break;
-            case "F": // display Florin Farm Menu
+            /*case "F": // display Florin Farm Menu
                 this.displayFlorinFarmMap();
                 break;
             case "I": // display Cliffs of Insanity Menu
@@ -96,7 +96,7 @@ public class MapMenuView extends View{
                 break;
             case "C": // display Florin Castle Menu
                 this.displayFlorinCastleMap();
-                break;
+                break;*/
             case "A": // Print Actor Report
                 this.printActorReport();
                 break;
@@ -226,7 +226,7 @@ public class MapMenuView extends View{
    private void displayMap() {
         
         String indicator;
-
+        String currentScene = null;
         Game game = PrincessBride.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
@@ -248,17 +248,22 @@ public class MapMenuView extends View{
                 indicator = "\u001B[0m";
 
                 if (locations[row][column] == map.getCurrentLocation()) {
-                    indicator = "\u001B[45m"; // indicators showing player current location
+                    indicator = "\u001B[46m"; // indicators showing player current location
 
                 } else if (locations[row][column].isVisited()) {
-                    indicator = "\u001B[46m"; // indicators showing visited
+                    indicator = "\u001B[47m"; // indicators showing visited
 
                 }
                 System.out.print("|"); // start map with a |
                 if (locations[row][column].getScene() == null) {
                     System.out.print(indicator + "    " + "\u001B[0m");
                 } else {
-                    System.out.print(indicator + " " + "\u001B[44;37m" + locations[row][column].getScene().getMapSymbol() + indicator + " " + "\u001B[0m");
+                    System.out.print(indicator + " " + "\u001B[44;37m" 
+                                            + "\u001B[1m" + locations[row][column].getScene().getMapSymbol() 
+                                            + indicator + " " + "\u001B[0m");
+                    if (locations[row][column] == map.getCurrentLocation()) {
+                        currentScene = (locations[row][column].getScene().getMapSymbol());
+                    }
                 }
             }
             System.out.println("|");
@@ -267,7 +272,13 @@ public class MapMenuView extends View{
                     System.out.print("-");
                     }
             System.out.println();
-            
+        }
+        //System.out.println(currentScene);  
+        if (currentScene == "FF") {
+           //case "FF": // get and start Love Menu
+            this.startTrueLoveView();
+            currentScene = null;
+            //break;
         }
     }
    
@@ -340,13 +351,16 @@ public class MapMenuView extends View{
                 }
             }
             System.out.printf("%n%-20s%10s%10s", "Player"
-                                                , "      \u001B[45m" + "    " + "\u001B[0m"
+                                                , "      \u001B[46m" + "    " + "\u001B[0m"
                                                 , "(" + map.getCurrentRow() + "," + map.getCurrentColumn() + ")");
+            System.out.printf("%n%-20s%10s%10s", "Visited Place"
+                                                , "      \u001B[47m" + "    " + "\u001B[0m","");
             //System.out.println(player.getName());
-    }
-
-    private void displayFlorinFarmMap() {
-        System.out.println("Menu is not avariable until you have reached the Location.");
+        }
+    
+    private void startTrueLoveView() {
+        StartTrueLoveView trueLove= new StartTrueLoveView();
+        trueLove.display();
     }
 
     private void displayCliffsOfInsanityMap() {

@@ -50,7 +50,7 @@ public class Scene implements Serializable{
         this.type = type;
     }
     
-        public String getMapSymble() {
+        public String getMapSymbol() {
         return mapSymbol;
     }
 
@@ -102,10 +102,6 @@ public class Scene implements Serializable{
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", travelTime=" + travelTime + ", type=" + type + '}';
-    }
-
-    public String getMapSymbol() {
-        return mapSymbol;
     }
 
     public boolean isBlocked() {

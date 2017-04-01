@@ -178,14 +178,14 @@ private static void assignScenesToLocations(Map map, Scene[] scenes) {
     Location[][] locations = map.getLocations();
 
     // start point
-    locations[0][0].setScene(scenes[SceneType.florinFarm.ordinal()]);
+    /*locations[0][0].setScene(scenes[SceneType.florinFarm.ordinal()]);
     locations[0][1].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
     locations[0][2].setScene(scenes[SceneType.gilderFrontier.ordinal()]);
     locations[0][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
     locations[0][4].setScene(scenes[SceneType.greenland.ordinal()]);
     locations[0][5].setScene(scenes[SceneType.thievesForest.ordinal()]);
     locations[0][6].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
-    locations[0][7].setScene(scenes[SceneType.florinCastle.ordinal()]);
+    locations[0][7].setScene(scenes[SceneType.florinCastle.ordinal()]);*/
 
 }
     

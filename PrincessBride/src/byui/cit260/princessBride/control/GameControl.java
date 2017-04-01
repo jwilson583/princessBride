@@ -290,11 +290,11 @@ public class GameControl {
         Location[][] locations = map.getLocations();
 
         locations[0][2].setScene(scenes[SceneType.florinFarm.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
         locations[8][4].setScene(scenes[SceneType.gilderFrontier.ordinal()]);
-        locations[2][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.fireSwamp.ordinal()]);
         locations[1][7].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[6][3].setScene(scenes[SceneType.thievesForest.ordinal()]);
+        locations[5][1].setScene(scenes[SceneType.thievesForest.ordinal()]);
         locations[6][7].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
         locations[9][8].setScene(scenes[SceneType.florinCastle.ordinal()]);
 

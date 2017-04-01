@@ -33,20 +33,19 @@ public class MiracleMaxStoreView extends View {
               + "\n*******************************************************"
               + "\n"
               + "\n"
-            + "\n----------------------------------------"
-            + "\n| Miracle Max Store Item Menu          |"
-            + "\n----------------------------------------"
-            + "\n M - Miracle Potion"
-            + "\n E - Egg"
-            + "\n L - Potion of True Love"
-            + "\n Q - Return to Game Menu"
-            + "\n----------------------------------------");
+              + "\n  ----------------------------------------"
+              + "\n  | Miracle Max Store Item Menu          |"
+              + "\n  ----------------------------------------"
+              + "\n    M - Miracle Potion"
+              + "\n    E - Egg"
+            //+ "\n L - Potion of True Love"
+              + "\n    Q - Return to Game Menu"
+              + "\n  ----------------------------------------");
         
     }
     
 
 @Override
-
     public boolean doAction(String value) {
         
         value = value.toUpperCase(); // convert itemOption to upper case
@@ -58,9 +57,9 @@ public class MiracleMaxStoreView extends View {
             case "E": // get and start Egg Menu
                 this.startEgg();
                 break;
-            case "L": // get and start Love Menu
-                this.startTrueLoveView();
-                break;
+            //case "L": // get and start Love Menu
+            //    this.startTrueLoveView();
+            //    break;
             case "Q": // return to Game Menu
                 this.displayGameMenuView();
                 break;   
@@ -81,10 +80,10 @@ public class MiracleMaxStoreView extends View {
         System.out.println("\n*** startEgg() function called ***");
     }
 
-    private void startTrueLoveView() {
+    /*private void startTrueLoveView() {
         StartTrueLoveView trueLove= new StartTrueLoveView();
         trueLove.display();
-    }
+    }*/
 
     private void displayGameMenuView() {
         GameMenuView gameMenu = new GameMenuView();
