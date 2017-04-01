@@ -30,13 +30,13 @@ private final Point coordinates;
    
     Actor(String description) {
         this.description = description;
-        coordinates = new Point(1,1);
+        coordinates = new Point(0,0);
     }
         
     public String getDescription() {
         return description;
     }
     public Point getCoordinates() {
-    return coordinates;
+        return coordinates;
     }
 }

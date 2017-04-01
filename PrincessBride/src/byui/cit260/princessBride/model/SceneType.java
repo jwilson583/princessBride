@@ -12,7 +12,7 @@ package byui.cit260.princessBride.model;
 public enum SceneType {
     florinFarm,
     cliffsOfInsanity,
-    guilderFrontier,
+    gilderFrontier,
     fireSwamp,
     greenland,
     thievesForest,

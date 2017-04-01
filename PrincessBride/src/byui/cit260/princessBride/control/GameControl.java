@@ -66,7 +66,7 @@ public class GameControl {
         game.setMap(map); // save map in game
         
         // move actors to starting position in the map
-        MapControl.moveActorsToStartingLocation(map);
+        //MapControl.moveActorsToStartingLocation(map);
         
     }
 
@@ -180,9 +180,9 @@ public class GameControl {
         trueLove.setType("health");
         trueLove.setQuantityInStock(0);
         trueLove.setPointRequired(0);
-        trueLove.setPowerPoint(100);
-        trueLove.setRowCount(0);
-        trueLove.setColumnCount(0);
+//        trueLove.setPowerPoint(100);
+        trueLove.setRowCount(1);
+        trueLove.setColumnCount(1);
         inventory[Item.trueLove.ordinal()] = trueLove;
         
         InventoryItem sword = new InventoryItem();
@@ -191,9 +191,9 @@ public class GameControl {
         sword.setType("health");
         sword.setQuantityInStock(10);
         sword.setPointRequired(50);
-        sword.setPowerPoint(50);
-        sword.setRowCount(0);
-        sword.setColumnCount(0);
+//        sword.setPowerPoint(50);
+        sword.setRowCount(3);
+        sword.setColumnCount(5);
         inventory[Item.sword.ordinal()] = sword;
         
         InventoryItem rock = new InventoryItem();
@@ -202,9 +202,9 @@ public class GameControl {
         rock.setType("attack");
         rock.setQuantityInStock(20);
         rock.setPointRequired(4);
-        rock.setPowerPoint(30);
-        rock.setRowCount(0);
-        rock.setColumnCount(0);
+ //       rock.setPowerPoint(30);
+        rock.setRowCount(6);
+        rock.setColumnCount(7);
         inventory[Item.rock.ordinal()] = rock;
         
         InventoryItem dagger = new InventoryItem();
@@ -213,7 +213,7 @@ public class GameControl {
         dagger.setType("attack");
         dagger.setQuantityInStock(2);
         dagger.setPointRequired(20);
-        dagger.setPowerPoint(10);
+//        dagger.setPowerPoint(10);
         dagger.setRowCount(4);
         dagger.setColumnCount(2);
         inventory[Item.dagger.ordinal()] = dagger;
@@ -224,7 +224,7 @@ public class GameControl {
         iocanePowder.setType("attack");
         iocanePowder.setQuantityInStock(2);
         iocanePowder.setPointRequired(10);
-        iocanePowder.setPowerPoint(100);
+//        iocanePowder.setPowerPoint(100);
         iocanePowder.setRowCount(1);
         iocanePowder.setColumnCount(2);
         inventory[Item.iocanePowder.ordinal()] = iocanePowder;
@@ -235,7 +235,7 @@ public class GameControl {
         moneyBag.setType("attack");
         moneyBag.setQuantityInStock(10);
         moneyBag.setPointRequired(20);
-        moneyBag.setPowerPoint(0);
+ //       moneyBag.setPowerPoint(0);
         moneyBag.setColumnCount(3);
         inventory[Item.moneyBag.ordinal()] = moneyBag;
         
@@ -245,7 +245,7 @@ public class GameControl {
         miraclePotions.setType("health");
         miraclePotions.setQuantityInStock(10);
         miraclePotions.setPointRequired(15);
-        miraclePotions.setPowerPoint(100);
+//        miraclePotions.setPowerPoint(100);
         miraclePotions.setRowCount(2);
         miraclePotions.setColumnCount(8);
         inventory[Item.miraclePotions.ordinal()] = miraclePotions;
@@ -256,8 +256,8 @@ public class GameControl {
         map.setType("attack");
         map.setQuantityInStock(50);
         map.setPointRequired(10);
-        map.setPowerPoint(0);
-        map.setRowCount(0);
+//        map.setPowerPoint(0);
+        map.setRowCount(4);
         map.setColumnCount(2);
         inventory[Item.map.ordinal()] = map;
         
@@ -267,7 +267,7 @@ public class GameControl {
         holocaustCloak.setType("attack");
         holocaustCloak.setQuantityInStock(8);
         holocaustCloak.setPointRequired(50);
-        holocaustCloak.setPowerPoint(40);
+//        holocaustCloak.setPowerPoint(40);
         holocaustCloak.setRowCount(4);
         holocaustCloak.setColumnCount(5);
         inventory[Item.holocaustCloak.ordinal()] = holocaustCloak;
@@ -278,7 +278,7 @@ public class GameControl {
         egg.setType("health");
         egg.setQuantityInStock(100);
         egg.setPointRequired(10);
-        egg.setPowerPoint(10);
+//        egg.setPowerPoint(10);
         egg.setRowCount(8);
         egg.setColumnCount(3);
         inventory[Item.egg.ordinal()] = egg;
@@ -289,13 +289,13 @@ public class GameControl {
         static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
-        locations[0][0].setScene(scenes[SceneType.florinFarm.ordinal()]);
-        locations[0][3].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
-        locations[1][6].setScene(scenes[SceneType.guilderFrontier.ordinal()]);
+        locations[0][2].setScene(scenes[SceneType.florinFarm.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
+        locations[8][4].setScene(scenes[SceneType.gilderFrontier.ordinal()]);
         locations[2][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
-        locations[5][9].setScene(scenes[SceneType.greenland.ordinal()]);
-        locations[7][1].setScene(scenes[SceneType.thievesForest.ordinal()]);
-        locations[8][6].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
+        locations[1][7].setScene(scenes[SceneType.greenland.ordinal()]);
+        locations[6][3].setScene(scenes[SceneType.thievesForest.ordinal()]);
+        locations[6][7].setScene(scenes[SceneType.pitOfDespair.ordinal()]);
         locations[9][8].setScene(scenes[SceneType.florinCastle.ordinal()]);
 
         }

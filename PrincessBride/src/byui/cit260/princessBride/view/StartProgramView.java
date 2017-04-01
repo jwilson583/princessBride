@@ -48,17 +48,17 @@ public class StartProgramView extends View {
 
 @Override
 
-    public boolean doAction(String value) {
+    public boolean doAction(String playersName) {
         
         try {
-            if ((value.length() < 2) || (value.length()) > 20) {
+            if ((playersName.length() < 2) || (playersName.length()) > 20) {
                 System.out.println("\nInvalid player's name: "
                         + "The name must be greater than 1 and less than 20 characters in length");
                 return false;
             }
             
             // call createPlayer() control function
-            Player player = GameControl.createPlayer(value);
+            Player player = GameControl.createPlayer(playersName);
             
             if (player == null) { // if unsuccessful
                 System.out.println("\nError creating the player.");
@@ -74,7 +74,7 @@ public class StartProgramView extends View {
         return false;
     }
 
-    private void displayNextView(Player player) {
+    public void displayNextView(Player player) {
         
         // display a custom welcome message
         this.console.println("\n======================================================="

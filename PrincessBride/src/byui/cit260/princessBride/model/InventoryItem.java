@@ -24,6 +24,7 @@ public class InventoryItem implements Serializable{
     private double rowCount;
     private double columnCount;
     private Object requiredAmount;
+    //private double powerPoint;
 
 
     public InventoryItem() {
@@ -142,8 +143,14 @@ public class InventoryItem implements Serializable{
         return requiredAmount;
     }
 
-    public void setPowerPoint(int i) {
-        System.out.println("\n*** setPowerPoint() function called ***");
+
+
+    /*public double getPowerPoint() {
+        return powerPoint;
     }
+
+    public void setPowerPoint(double powerPoint) {
+        this.powerPoint = powerPoint;
+    }*/
     
 }

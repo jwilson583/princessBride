@@ -125,8 +125,8 @@ public class Game implements Serializable{
         return map;
     }
 
-    public Point[] getActorsLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public Point[] getActorsLocation() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
 }

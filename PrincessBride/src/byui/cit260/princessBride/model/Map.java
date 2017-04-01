@@ -15,8 +15,11 @@ public class Map implements Serializable {
 
     private int rowCount;
     private int columnCount;
+    private int currentRow;
+    private int currentColumn;
     private Location currentLocation;
     private Location[][] locations;
+    private Game[] game;
 
     public Map() {     
     }
@@ -50,20 +53,20 @@ public class Map implements Serializable {
 
     
     
-    public long getRowCount() {
-        return rowCount;
+    public int getCurrentRow() {
+        return currentRow;
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
     }
 
-    public long getColumnCount() {
-        return columnCount;
+    public int getCurrentColumn() {
+        return currentColumn;
     }
 
-    public void setColumnCount(int columnCount) {
-        this.columnCount = columnCount;
+    public void setCurrentColumn(int currentColumn) {
+        this.currentColumn = currentColumn;
     }
 
     
@@ -81,6 +84,22 @@ public class Map implements Serializable {
 
     public void setLocations(Location[][] locations) {
         this.locations = locations;
+    }
+    
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
     }
     
     public static Scene[] createScenes() {
@@ -104,13 +123,13 @@ public class Map implements Serializable {
         cliffsOfInsanityScene.setTravelTime(100);
         scenes[SceneType.cliffsOfInsanity.ordinal()] = cliffsOfInsanityScene;
         
-        Scene guilderFrontierScene = new Scene();
-        guilderFrontierScene.setDescription(
-            "Guilder Frontier");
-        guilderFrontierScene.setMapSymbol("GF");
-        guilderFrontierScene.setBlocked(false);
-        guilderFrontierScene.setTravelTime(100);
-        scenes[SceneType.guilderFrontier.ordinal()] = guilderFrontierScene;
+        Scene gilderFrontierScene = new Scene();
+        gilderFrontierScene.setDescription(
+            "Gilder Frontier");
+        gilderFrontierScene.setMapSymbol("GF");
+        gilderFrontierScene.setBlocked(false);
+        gilderFrontierScene.setTravelTime(100);
+        scenes[SceneType.gilderFrontier.ordinal()] = gilderFrontierScene;
         
         Scene fireSwampScene = new Scene();
         fireSwampScene.setDescription(
@@ -161,7 +180,7 @@ private static void assignScenesToLocations(Map map, Scene[] scenes) {
     // start point
     locations[0][0].setScene(scenes[SceneType.florinFarm.ordinal()]);
     locations[0][1].setScene(scenes[SceneType.cliffsOfInsanity.ordinal()]);
-    locations[0][2].setScene(scenes[SceneType.guilderFrontier.ordinal()]);
+    locations[0][2].setScene(scenes[SceneType.gilderFrontier.ordinal()]);
     locations[0][3].setScene(scenes[SceneType.fireSwamp.ordinal()]);
     locations[0][4].setScene(scenes[SceneType.greenland.ordinal()]);
     locations[0][5].setScene(scenes[SceneType.thievesForest.ordinal()]);
@@ -201,11 +220,4 @@ private static void assignScenesToLocations(Map map, Scene[] scenes) {
         return true;
     }
 
-    public int getNoOfRows() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public int getNoOfColumns() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

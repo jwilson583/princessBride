@@ -5,6 +5,7 @@
  */
 package byui.cit260.princessBride.view;
 
+import byui.cit260.princessBride.control.MapControl;
 import byui.cit260.princessBride.model.Actor;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.Location;
@@ -15,6 +16,8 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import princessbride.PrincessBride;
+import byui.cit260.princessBride.model.Player;
+
 
 /**
  *
@@ -27,16 +30,20 @@ public class MapMenuView extends View{
             + "\n  ----------------------------------------"
             + "\n | Map Menu                               |"
             + "\n  ----------------------------------------"
-            + "\n M - View Map of Florin"
+            + "\n M - Map of Florin"
+            + "\n K - Map Legend"
+            + "\n U - Move Up"
+            + "\n D - Move Down"
+            + "\n L - Move Left"
+            + "\n R - Move Right"
             + "\n F - Florin Farm"
             + "\n I - Cliffs of Insanity"
             + "\n G - Guilder Frontier"
             + "\n S - Fire Swamp"
-            + "\n L - Greenland"
             + "\n T - Thieves Forest"
             + "\n P - Pit of Despair"
             + "\n C - Florin Castle"
-            + "\n R - Print Actor Report"
+            + "\n A - Print Actor Report"
             + "\n W - Write Map Report"
             + "\n Q - Return to Main Menu"
             + "\n------------------------------------------");
@@ -54,31 +61,43 @@ public class MapMenuView extends View{
             case "M": // display map of Florin
                 this.displayMap();
                 break;
-            case "F": // display Florin Farm Map
+            case "K": // list scenes on map
+                this.displaylegend();
+                break;
+            case "U": // Move up
+                this.moveUp();
+                break;
+            case "D": // Move down
+                this.moveDown();
+                break;
+            case "L": // Move left
+                this.MoveLeft();
+                break;
+            case "R": // Move right
+                this.moveRight();
+                break;
+            case "F": // display Florin Farm Menu
                 this.displayFlorinFarmMap();
                 break;
-            case "I": // display Florin Farm Map
+            case "I": // display Cliffs of Insanity Menu
                 this.displayCliffsOfInsanityMap();
                 break;
-            case "G": // display Florin Farm Map
-                this.displayGuilderFrontierMap();
+            case "G": // display Gilder Frontier Menu
+                this.displayGilderFrontierMap();
                 break;
-            case "S": // display Florin Farm Map
+            case "S": // display Fire Swamp Menu
                 this.displayFireSwampMap();
                 break;
-            case "L": // display Florin Farm Map
-                this.displayGreenlandMap();
-                break;
-            case "T": // display Florin Farm Map
+            case "T": // display FThieves Forest Menu
                 this.displayThievesForestMap();
                 break;
-            case "P": // display Florin Farm Map
+            case "P": // display Pit of Despair Menu
                 this.displayPitOfDespairMap();
                 break;
-            case "C": // display Florin Farm Map
+            case "C": // display Florin Castle Menu
                 this.displayFlorinCastleMap();
                 break;
-            case "R": // Print Actor Report
+            case "A": // Print Actor Report
                 this.printActorReport();
                 break;
             case "W": // print list of Scenes
@@ -95,42 +114,12 @@ public class MapMenuView extends View{
         return false;
     }
 
-    private void displayFlorinFarmMap() {
-        System.out.println("\n*** displayFlorinFarmMap() function called ***");
-    }
-
-    private void displayCliffsOfInsanityMap() {
-        System.out.println("\n*** displayCliffsOfInsanityMap() function called ***");
-    }
-
-    private void displayGuilderFrontierMap() {
-        System.out.println("\n*** displayGuilderFrontierMap() function called ***");
-    }
-
-    private void displayFireSwampMap() {
-        System.out.println("\n*** displayFireSwampMap() function called ***");
-    }
-
-    private void displayGreenlandMap() {
-        System.out.println("\n*** displayGreenlandMap() function called ***");
-    }
-
-    private void displayThievesForestMap() {
-        System.out.println("\n*** displayThievesForestMap() function called ***");
-    }
-
-    private void displayPitOfDespairMap() {
-        System.out.println("\n*** displayPitOfDespairMap() function called ***");
-    }
-
-    private void displayFlorinCastleMap() {
-        System.out.println("\n*** displayFlorinCastleMap() function called ***");
-    }
-
     private void displayMainMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        MainMenuView mainMenu= new MainMenuView ();
+        mainMenu.display();
     }
- private void viewActors(PrintWriter out) {
+    
+    private void viewActors(PrintWriter out) {
         Game game = PrincessBride.getCurrentGame();
         out.println("\n    LIST OF ACTORS");
         StringBuilder line = new StringBuilder("                                                          ");
@@ -140,12 +129,12 @@ public class MapMenuView extends View{
         
         Actor[] actors = Actor.values();
         for (Actor actor : actors) {
-            Point coordinates = game.getActorsLocation()[actor.ordinal()];
+            //Point coordinates = game.getActorsLocation()[actor.ordinal()];
             line = new StringBuilder("                                                          ");
             line.insert(0, actor.name());
-            int row = coordinates.x+1;
-            int column = coordinates.y+1;
-            line.insert(17,  + row + ", " + column);
+            //int row = coordinates.x+1;
+            //int column = coordinates.y+1;
+            //line.insert(17,  + row + ", " + column);
             out.println(line.toString());
         }
         
@@ -181,23 +170,68 @@ public class MapMenuView extends View{
             ErrorView.display("GameMenuView", "Error writing to game report file. "
                     + "\n\t" + ex.getMessage());
         }
-
-   
    }
+
+    private void moveUp() {
+        Game game = PrincessBride.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        //Location[][] locations = map.getLocations(); // retreive the locations from map
+
+        if (map.getCurrentRow() > 0) {
+            MapControl.movePlayer(map, map.getCurrentRow() - 1, map.getCurrentColumn());
+        } else {
+            this.console.println("\nCannot move up any further.");
+        }
+    }
+
+    private void moveDown() {
+        Game game = PrincessBride.getCurrentGame(); //retrieve the game
+        Map map = game.getMap(); // retreive the map from game
+
+        if (map.getCurrentRow() < map.getRowCount() - 1) {
+            MapControl.movePlayer(map, map.getCurrentRow() + 1, map.getCurrentColumn());
+        } else {
+            this.console.println("\nCannot move down any furter.");
+        }
+    }
+
+    private void MoveLeft() {
+        Game game = PrincessBride.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        //Location[][] locations = map.getLocations(); // retreive the locations from map
+
+        if (map.getCurrentColumn() > 0) {
+            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() - 1);
+        } else {
+            this.console.println("\nCannot move any further to the left.");
+        }
+    }
+
+    private void moveRight() {
+        Game game = PrincessBride.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        //Location[][] locations = map.getLocations(); // retreive the locations from map
+
+        if (map.getCurrentColumn() < map.getColumnCount() - 1) {
+            MapControl.movePlayer(map, map.getCurrentRow(), map.getCurrentColumn() + 1);
+        } else {
+            this.console.println("\nCannot move any further to the right.");
+        }
+        
+        
+    }
+   
+   
    
    private void displayMap() {
         
-        String leftIndicator;
-        String rightIndicator;
-        String greenBackgroundColor;
-        String whiteBackgroundColor;
+        String indicator;
 
         Game game = PrincessBride.getCurrentGame(); // retreive the game
         Map map = game.getMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
 
-        System.out.println("                 The LAND OF FLORIN");
-        //System.out.println("\n");
+        System.out.println("\n                 The LAND OF FLORIN");
         System.out.print("\n  ");
         for (int column = 0; column < locations[0].length; column++) {
             System.out.print("  " + column + "  "); // print col numbers to side of map
@@ -211,23 +245,20 @@ public class MapMenuView extends View{
         for (int row = 0; row < locations.length; row++) {
             System.out.print(row + " "); // print row numbers to side of map
             for (int column = 0; column < locations[row].length; column++) {
-                leftIndicator = " ";
-                rightIndicator = " ";
+                indicator = "\u001B[0m";
+
                 if (locations[row][column] == map.getCurrentLocation()) {
-                    leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
-                    rightIndicator = "*"; // same as above
+                    indicator = "\u001B[45m"; // indicators showing player current location
+
                 } else if (locations[row][column].isVisited()) {
-                    leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
-                    rightIndicator = "<"; // same as above
+                    indicator = "\u001B[46m"; // indicators showing visited
+
                 }
                 System.out.print("|"); // start map with a |
                 if (locations[row][column].getScene() == null) {
-                    System.out.print(leftIndicator + "??" + rightIndicator);
+                    System.out.print(indicator + "    " + "\u001B[0m");
                 } else {
-                    greenBackgroundColor = "\u001B[42m";
-                    whiteBackgroundColor = "\u001B[0m";
-                            //textColor = "\b\u001B[37m";
-                    System.out.print(leftIndicator + greenBackgroundColor + locations[row][column].getScene().getMapSymbol() + whiteBackgroundColor + rightIndicator);
+                    System.out.print(indicator + " " + "\u001B[44;37m" + locations[row][column].getScene().getMapSymbol() + indicator + " " + "\u001B[0m");
                 }
             }
             System.out.println("|");
@@ -236,6 +267,7 @@ public class MapMenuView extends View{
                     System.out.print("-");
                     }
             System.out.println();
+            
         }
     }
    
@@ -250,7 +282,7 @@ public class MapMenuView extends View{
         String dateTime = formatter.format(currentTime);
 
         this.console.println("\nEnter the file path for file where the Map Report"
-                            + "is to be saved.");
+                            + " is to be saved.");
         String filePath = this.getInput();
         
         //create BufferedReader object for input file e.g. /Users/edwinyam/Downloads/test.txt
@@ -260,7 +292,7 @@ public class MapMenuView extends View{
             // print title and column headings
             outFile.write("\n\n               Map Report            \n");  //change out.println to System.out.println
             outFile.write(String.format("%n%-20s%10s%10s", "Place Name", "Symbol", "Location"));
-            outFile.write(String.format("%n%-20s%10s%10s", "------------------", "--------", "------"));
+            outFile.write(String.format("%n%-20s%10s%10s", "------------------", "--------", "--------"));
             
             // print the description, quanity and pric of each item
             for (int row = 0; row < locations.length; row++) {
@@ -282,5 +314,62 @@ public class MapMenuView extends View{
                     + "\n\t" + ex.getMessage());
         }
                     System.out.println("Map Report has been saved.");
+    }
+
+    private void displaylegend() {
+        Game game = PrincessBride.getCurrentGame();
+        Map map = game.getMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+
+            // print title and column headings*/
+            System.out.println("\n\n               Map Report            \n");  //change out.println to System.out.println
+            System.out.printf("%n%-20s%10s%10s", "Place Name", "Symbol", "Location");
+            System.out.printf("%n%-20s%10s%10s", "------------------", "--------", "--------");
+            
+            // print the description, quanity and pric of each item
+            for (int row = 0; row < locations.length; row++) {
+            
+                for (int column = 0; column < locations[row].length; column++) {
+
+                    if (locations[row][column].getScene() != null) {
+
+                        System.out.printf("%n%-20s%10s%10s", locations[row][column].getScene().getDescription() 
+                                                            , "       \u001B[44;37m" + locations[row][column].getScene().getMapSymbol() + "\u001B[0m "
+                                                            , "(" + row + "," + column + ")");
+                    }
+                }
+            }
+            System.out.printf("%n%-20s%10s%10s", "Player"
+                                                , "      \u001B[45m" + "    " + "\u001B[0m"
+                                                , "(" + map.getCurrentRow() + "," + map.getCurrentColumn() + ")");
+            //System.out.println(player.getName());
+    }
+
+    private void displayFlorinFarmMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayCliffsOfInsanityMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayGilderFrontierMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayFireSwampMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayThievesForestMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayPitOfDespairMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
+    }
+
+    private void displayFlorinCastleMap() {
+        System.out.println("Menu is not avariable until you have reached the Location.");
     }
 }
