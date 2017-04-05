@@ -5,11 +5,17 @@
  */
 package byui.cit260.princessBride.view;
 
-import java.util.Scanner;
+import byui.cit260.princessBride.model.Game;
+import byui.cit260.princessBride.model.InventoryItem;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import princessbride.PrincessBride;
 
 /**
  *
- * @author lai
+ * @author lai/Ben
  */
 public class MiracleMaxStoreView extends View {
 
@@ -39,6 +45,7 @@ public class MiracleMaxStoreView extends View {
               + "\n    M - Miracle Potion"
               + "\n    E - Egg"
             //+ "\n L - Potion of True Love"
+              + "\n    O - Print Inventory"
               + "\n    Q - Return to Game Menu"
               + "\n  ----------------------------------------");
         
@@ -56,6 +63,9 @@ public class MiracleMaxStoreView extends View {
                 break;
             case "E": // get and start Egg Menu
                 this.startEgg();
+                break;
+                case "O":    
+                this.PrintInventory ();
                 break;
             //case "L": // get and start Love Menu
             //    this.startTrueLoveView();
@@ -88,5 +98,32 @@ public class MiracleMaxStoreView extends View {
     private void displayGameMenuView() {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
+    }
+    
+     private void PrintInventory() {
+     
+        Game game = PrincessBride.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+        this.console.println("\nEnter the file path where the report is to be saved");
+        
+        String filePath = this.getInput();
+        if (filePath == null) {
+            return;
+        }
+        
+        try (PrintWriter out = new PrintWriter(filePath)){
+           out.println("\n\n          Inventory Sheet                        ");
+           out.printf("%n%-20s%20s%20s","Name","Quantity","Description");
+           out.printf("%n%-20s%20s%20s","-----","-------","-----------");
+                      
+           for (InventoryItem item : inventory){
+               out.printf("%n%-20s%20s%20s", item.getName()
+                                           , item.getQuantityInStock()
+                                           , item.getDescription());
+           }
+           
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }System.out.println(" Inventory sheet has been saved.");
     }
 }

@@ -9,21 +9,13 @@ package byui.cit260.princessBride.view;
 import byui.cit260.princessBride.model.Game;
 import byui.cit260.princessBride.model.InventoryItem;
 import byui.cit260.princessBride.model.CollectedItem;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import princessbride.PrincessBride;
-import byui.cit260.princessBride.view.View;
-import java.io.FileNotFoundException;
-import java.io.Writer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * 
  *
- * @author Lai
+ * @author Lai/Ben
  */
 public class GameMenuView extends View{
     
@@ -42,11 +34,8 @@ public class GameMenuView extends View{
                   + "\n      the highest health point"
                   + "\n  K - Display Skills"
                   + "\n  A - Display Attack"
-                  + "\n  L - Load Game"
                   + "\n  G - Save Game"
                   + "\n  Q - Return to Main Menu"
-                      +"\n***************************************"
-                      +"\n  O-Print Inventory"
                   + "\n -----------------------------------------");
     }
    @Override 
@@ -76,15 +65,12 @@ public class GameMenuView extends View{
             case "A": // display the attack menu
                 this.AttackMenuView();
                 break;
-            case "L": // Load Game
-                this.loadGame();
-                break;
             case "G": // Save Game
                 this.saveGame();
                 break;
-            case "O":    
-                this.PrintInventory ();
-                break;
+                case "Q": // return to Game Menu
+                this.displayMainMenuView();
+                break;   
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -213,9 +199,7 @@ public class GameMenuView extends View{
         AttackMenuView AttackMenu = new AttackMenuView();
         AttackMenu.display();
     }
-    private void loadGame() {
-        System.out.println("\n*** loadGame() function called ***");
-    }
+    
     private void saveGame() {
         System.out.println("\n*** saveGame() function called ***");
     }
@@ -223,31 +207,9 @@ public class GameMenuView extends View{
         System.out.println("\n*** displayMenu() function called ***");
     }
 
-    private void PrintInventory() {
-     
-        Game game = PrincessBride.getCurrentGame();
-        InventoryItem[] inventory = game.getInventory();
-        this.console.println("\nEnter the file path where the report is to be saved");
-        
-        String filePath = this.getInput();
-        if (filePath == null) {
-            return;
-        }
-        
-        try (PrintWriter out = new PrintWriter(filePath)){
-           out.println("\n\n          Inventory Sheet                        ");
-           out.printf("%n%-20s%20s%20s","Name","Quantity","Description");
-           out.printf("%n%-20s%20s%20s","-----","-------","-----------");
-                      
-           for (InventoryItem item : inventory){
-               out.printf("%n%-20s%20s%20s", item.getName()
-                                           , item.getQuantityInStock()
-                                           , item.getDescription());
-           }
-           
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
-        }System.out.println(" Inventory sheet has been saved.");
+      private void displayMainMenuView() {
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
     }
 }
         
