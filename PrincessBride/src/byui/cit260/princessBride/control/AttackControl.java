@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package byui.cit260.princessBride.control;
-
+import byui.cit260.princessBride.model.Actor;
 /**
  *
  * @author Jack Wilson
  */
 public class AttackControl {
+
 
     public double calcPercentHealth(double health){
         

@@ -7,18 +7,21 @@ package byui.cit260.princessBride.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  *
  * @author Jack Wilson
  */
 public class Player implements Serializable{
-    
+Random rannum = new Random();  
+
     //class instance variables
     private String name;
-    private int health;
-    private int defense;
-    private int attack;
+    private int health = 100;
+    int attack= 1+rannum.nextInt(100);
+    int defense= 1+rannum.nextInt(100);
+    int skill= 1+rannum.nextInt(100);
     private int gold;
 
     public Player() {
