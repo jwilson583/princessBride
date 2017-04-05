@@ -14,7 +14,7 @@ import princessbride.PrincessBride;
 
 /**
  *
- * @author Lai
+ * @author Lai/Ben
  */
 public class MainMenuView extends View{
 
@@ -26,7 +26,7 @@ public class MainMenuView extends View{
                   + "\n|      Main Menu                         |"
                   + "\n ----------------------------------------"
                   + "\n  N - Start new game"
-                  + "\n  G - Get and start save game"
+                  + "\n  L - Load a saved game"
                   + "\n  H - Get help on how to play the game"
                   + "\n  S - Save game"
                   + "\n  Q - Quit"
@@ -45,7 +45,7 @@ public class MainMenuView extends View{
             case "N": // create and start a new game
                 this.startNewGame();
                 break;
-            case "G": // get and start an existing game
+            case "L": // Load and start an existing game
                 this.startExistingGame();
                 break;
             case "H": // display the help menu

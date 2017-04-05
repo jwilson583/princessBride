@@ -22,7 +22,7 @@ public class BackpackMenuView extends View {
             + "\n 2- Pocket 2                               "
             + "\n 3- Pocket 3                               "
             + "\n 4- Pocket 4                               "
-            + "\n E- exit back to game                      "
+            + "\n Q- Return to Game Menu                      "
             + "\n-------------------------------------------");
     }   
     
@@ -46,6 +46,9 @@ public class BackpackMenuView extends View {
             case "4": // open pocket 4
                 this.getPocket4();
                 break;
+                 case "Q": // return to Game Menu
+                this.displayGameMenuView();
+                break;  
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -68,6 +71,11 @@ public class BackpackMenuView extends View {
 
     private void getPocket4() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   private void displayGameMenuView() {
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
     
 }

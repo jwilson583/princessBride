@@ -35,6 +35,9 @@ public class AttackMenuView extends View {
             case "F":
             this.fleeMap();
             break;
+             case "S":
+            this.fleeMap();
+            break;
             default:
                 ErrorView.display("AttackMenuView", "\n ***Invalid Selection Try Again***");
                 break;
